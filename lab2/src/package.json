@@ -1,6 +1,11 @@
 {
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:html": "prettier --write \"**/*.html\"",
+    "format:css": "prettier --write \"**/*.css\"",
+    "format:js": "prettier --write \"**/*.js\""
   },
   "dependencies": {
     "lodash": "^4.17.23"
