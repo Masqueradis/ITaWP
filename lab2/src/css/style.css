@@ -2,5 +2,40 @@
 {
     margin: 0;
     padding: 0;
+    background-color: #E1F5FE;
 }
 
+header
+{
+    padding: 50px 45%;
+    background-color: #fff;
+}
+
+header span
+{
+    background-color: #fff;
+    font-size: 30px;
+}
+
+footer
+{
+    margin-top: 450px;
+    padding: 50px 45%;
+    background-color: #039BE5;
+    color: #fff;
+}
+
+.hero
+{
+    padding: 50px 27%;
+    font-size: 40px;
+    font-weight: 700;
+    color: #039BE5;
+}
+
+.subtitle
+{
+    padding: 50px 31%;
+    color: #5A5A5A;
+    font-size: 18px;
+}
