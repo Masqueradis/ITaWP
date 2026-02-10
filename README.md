@@ -11,4 +11,5 @@
 
 
 Ссылка на макет Figma: https://www.figma.com/design/zWN5ZTChuNhAulFPHiLuVe/TastyBlog?node-id=0-1&t=jio2h98Y8pdWtrnH-1
+
 Ссылка на репозиторий GitHub: https://github.com/Masqueradis/ITaWP/tree/lab2-implementation
