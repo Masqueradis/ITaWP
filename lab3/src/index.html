@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TastyBlog – Здоровое питание</title>
-    <link rel="stylesheet" href="styles.css"></head>
+</head>
 <body>
   <div class="page">
     <div class="main-container">
-
       <div class="main-content">
 
         <header class="header">
@@ -27,6 +26,7 @@
         </header>
 
         <section class="hero">
+          <img src="https://via.placeholder.com/1200x400?text=Healthy+Food" alt="Яркие овощи и фрукты на столе" class="hero__image">
           <h1 class="hero__title">Кулинарный блог о здоровом питании</h1>
           <div class="hero__content">
             <p class="hero__subtitle">Просто о вкусной и полезной еде. Рецепты, советы и идеи для вашей кухни.</p>
@@ -38,23 +38,50 @@
         </section>
 
         <section class="posts">
-          <h2 class="posts__title">Последняя статья</h2>
-          <article class="post" itemscope itemtype="https://schema.org/Article">
-            <header class="post__header">
-              <h3 class="post__headline" itemprop="headline">5 правил здорового завтрака</h3>
-              <time class="post__date" datetime="2024-01-15" itemprop="datePublished">15 января 2024</time>
-              <div class="post__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                <span class="post__author-name" itemprop="name">Вероника Равгейша</span>
+          <h2 class="posts__title">Последние рецепты</h2>
+          <div class="posts__grid">
+            <article class="post" itemscope itemtype="https://schema.org/Article">
+              <header class="post__header">
+                <img src="images/letnie-zavtraki.jpg" alt="Тарелка с едой" class="post__image" itemprop="image">
+                <h3 class="post__headline" itemprop="headline">5 правил здорового завтрака</h3>
+                <time class="post__date" datetime="2024-01-15" itemprop="datePublished">15 января 2024</time>
+                <div class="post__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                  <span class="post__author-name" itemprop="name">Равгейша Вероника</span>
+                </div>
+              </header>
+              <div class="post__content" itemprop="articleBody">
+                <p>Завтрак — самый важный приём пищи. Узнайте, какие продукты помогут зарядиться энергией и сохранить здоровье.</p>
               </div>
-            </header>
-            <div class="post__content" itemprop="articleBody">
-              <p>
-                Завтрак — самый важный приём пищи. Узнайте, какие продукты помогут зарядиться энергией 
-                и сохранить здоровье на целый день. В нашей новой статье мы собрали пять простых правил 
-                для идеального начала дня.
-              </p>
-            </div>
-          </article>
+            </article>
+
+            <article class="post">
+              <header class="post__header">
+                <img src="images/salat_iz_avokado_i_pomidorov-378572.jpg" alt="Миска с зелёным салатом" class="post__image">
+                <h3 class="post__headline">Салат с киноа и овощами</h3>
+                <time class="post__date" datetime="2024-01-10">10 января 2024</time>
+                <div class="post__author">
+                  <span class="post__author-name">Артём Почиковский</span>
+                </div>
+              </header>
+              <div class="post__content">
+                <p>Лёгкий и сытный салат, который можно взять с собой на работу. Готовится за 15 минут.</p>
+              </div>
+            </article>
+
+            <article class="post">
+              <header class="post__header">
+                <img src="images/221236902_w600_h600_poleznye-svojstva-zelenyh.webp" alt="Два стакана с разноцветными смузи" class="post__image">
+                <h3 class="post__headline">Зелёный смузи для энергии</h3>
+                <time class="post__date" datetime="2024-01-05">5 января 2024</time>
+                <div class="post__author">
+                  <span class="post__author-name">Ян Гейл</span>
+                </div>
+              </header>
+              <div class="post__content">
+                <p>Идеальный напиток для утра: шпинат, банан, яблоко и имбирь. Взбодрит лучше кофе!</p>
+              </div>
+            </article>
+          </div>
         </section>
       </div>
 
