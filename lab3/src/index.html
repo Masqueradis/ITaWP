@@ -4,50 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TastyBlog – Здоровое питание</title>
-</head>
+    <link rel="stylesheet" href="styles.css"></head>
 <body>
-<div style="width: 1460px; padding: 10px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
-  <div style="align-self: stretch; background: #E1F5FE; overflow: hidden; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 359px; display: flex">
-    <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: center; gap: 61px; display: flex">
-      <div style="align-self: stretch; padding-top: 40px; padding-bottom: 40px; position: relative; background: white; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05); justify-content: center; align-items: flex-start; gap: 14px; display: inline-flex">
-        <div style="left: 652px; top: 6px; position: absolute"><span style="color: #039BE5; font-size: 28px; font-family: Inter; font-weight: 700; word-wrap: break-word">Tasty</span><span style="color: #43A047; font-size: 28px; font-family: Inter; font-weight: 700; word-wrap: break-word">Blog</span></div>
-        <div style="left: 554px; top: 50px; position: absolute; justify-content: flex-start; align-items: center; gap: 25px; display: flex">
-          <div style="color: black; font-size: 16px; font-family: Inter; font-weight: 600; word-wrap: break-word">Главная</div>
-          <div style="color: black; font-size: 16px; font-family: Inter; font-weight: 600; word-wrap: break-word">Рецепты</div>
-          <div style="color: black; font-size: 16px; font-family: Inter; font-weight: 600; word-wrap: break-word">О нас</div>
-          <div style="color: black; font-size: 16px; font-family: Inter; font-weight: 600; word-wrap: break-word">Контакты</div>
-        </div>
-      </div>
-      <div style="width: 797px; text-align: center; color: #039BE5; font-size: 40px; font-family: Inter; font-weight: 700; word-wrap: break-word">Кулинарный блог о здоровом питании</div>
-      <div style="width: 700px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 32px; display: flex">
-        <div style="align-self: stretch; text-align: center; color: #5A5A5A; font-size: 18px; font-family: Inter; font-weight: 400; word-wrap: break-word">Просто о вкусной и полезной еде. Рецепты, советы и идеи для вышей кухни.</div>
-        <div style="width: 366px; justify-content: flex-start; align-items: flex-start; gap: 25px; display: inline-flex">
-          <div style="flex: 1 1 0; height: 48px; padding: 13px; background: #81C784; border-radius: 8px; justify-content: center; align-items: center; gap: 10px; display: flex">
-            <div style="text-align: center; color: white; font-size: 16px; font-family: Inter; font-weight: 600; word-wrap: break-word">Смотреть рецепты</div>
+  <div class="page">
+    <div class="main-container">
+
+      <div class="main-content">
+
+        <header class="header">
+          <div class="header__logo">
+            <span class="header__logo-part header__logo-part--blue">Tasty</span>
+            <span class="header__logo-part header__logo-part--green">Blog</span>
           </div>
-          <div style="flex: 1 1 0; height: 48px; padding-left: 29px; padding-right: 29px; padding-top: 14px; padding-bottom: 14px; border-radius: 8px; outline: 2px #4FC3F7 solid; outline-offset: -2px; justify-content: center; align-items: center; gap: 10px; display: flex">
-            <div style="text-align: center; color: #4FC3F7; font-size: 16px; font-family: Inter; font-weight: 600; word-wrap: break-word">Узнать больше</div>
+          <nav class="header__nav">
+            <ul class="header__menu">
+              <li class="header__menu-item">Главная</li>
+              <li class="header__menu-item">Рецепты</li>
+              <li class="header__menu-item">О нас</li>
+              <li class="header__menu-item">Контакты</li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="hero">
+          <h1 class="hero__title">Кулинарный блог о здоровом питании</h1>
+          <div class="hero__content">
+            <p class="hero__subtitle">Просто о вкусной и полезной еде. Рецепты, советы и идеи для вашей кухни.</p>
+            <div class="hero__buttons">
+              <button class="button button--primary">Смотреть рецепты</button>
+              <button class="button button--outline">Узнать больше</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="posts">
+          <h2 class="posts__title">Последняя статья</h2>
+          <article class="post" itemscope itemtype="https://schema.org/Article">
+            <header class="post__header">
+              <h3 class="post__headline" itemprop="headline">5 правил здорового завтрака</h3>
+              <time class="post__date" datetime="2024-01-15" itemprop="datePublished">15 января 2024</time>
+              <div class="post__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <span class="post__author-name" itemprop="name">Вероника Равгейша</span>
+              </div>
+            </header>
+            <div class="post__content" itemprop="articleBody">
+              <p>
+                Завтрак — самый важный приём пищи. Узнайте, какие продукты помогут зарядиться энергией 
+                и сохранить здоровье на целый день. В нашей новой статье мы собрали пять простых правил 
+                для идеального начала дня.
+              </p>
+            </div>
+          </article>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <div class="footer__info">
+          <div class="footer__brand">
+            <div class="footer__brand-name">TastyBlog</div>
+            <div class="footer__brand-description">Кулинарный блог о здоровом питании</div>
+          </div>
+          <div class="footer__sections">
+            <h4 class="footer__sections-title">Разделы</h4>
+            <ul class="footer__sections-list">
+              <li>Главная</li>
+              <li>Рецепты</li>
+              <li>О нас</li>
+              <li>Контакты</li>
+            </ul>
           </div>
         </div>
-      </div>
-    </div>
-    <div style="align-self: stretch; padding-top: 33px; padding-bottom: 122px; padding-left: 107px; padding-right: 47px; background: #039BE5; overflow: hidden; justify-content: space-between; align-items: center; display: inline-flex">
-      <div style="width: 676px; height: 158px; justify-content: space-between; align-items: center; display: flex">
-        <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
-          <div style="align-self: stretch; color: white; font-size: 28px; font-family: Inter; font-weight: 700; word-wrap: break-word">TastyBlog</div>
-          <div style="align-self: stretch; text-align: center; color: white; font-size: 18px; font-family: Inter; font-weight: 400; word-wrap: break-word">Кулинарный блог о здоровом питании</div>
+        <div class="footer__contacts">
+          <h4 class="footer__contacts-title">Контакты</h4>
+          <div class="footer__contacts-details">
+            Email: coolemail@tastyblog.com<br>
+            Телефон: +88005553535
+          </div>
         </div>
-        <div style="width: 125px; height: 157px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
-          <div style="align-self: stretch; text-align: center; color: white; font-size: 28px; font-family: Inter; font-weight: 700; word-wrap: break-word">Разделы</div>
-          <div style="width: 84px; height: 88px; color: white; font-size: 18px; font-family: Inter; font-weight: 400; word-wrap: break-word; text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">Главная<br/>Рецепты<br/>О нас<br/>Контакты</div>
-        </div>
-      </div>
-      <div style="width: 274px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 12px; display: inline-flex">
-        <div style="align-self: stretch; color: white; font-size: 28px; font-family: Inter; font-weight: 700; word-wrap: break-word">Контакты</div>
-        <div style="align-self: stretch; color: white; font-size: 18px; font-family: Inter; font-weight: 400; word-wrap: break-word">Email: coolemail@tastyblog.com<br/>Телефон: +88005553535</div>
-      </div>
+      </footer>
     </div>
   </div>
-</div>
 </body>
 </html>
