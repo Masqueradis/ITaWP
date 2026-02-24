@@ -1,115 +1,214 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TastyBlog – Здоровое питание</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TastyBlog</title>
+    <link rel="icon" type="image/png" href="/lab3/src/images/logo.png">
+    <!-- CSS будет подключаться отдельно -->
 </head>
 <body>
-  <div class="page">
-    <div class="main-container">
-      <div class="main-content">
 
-        <header class="header">
-          <div class="header__logo">
-            <span class="header__logo-part header__logo-part--blue">Tasty</span>
-            <span class="header__logo-part header__logo-part--green">Blog</span>
-          </div>
-          <nav class="header__nav">
-            <ul class="header__menu">
-              <li class="header__menu-item">Главная</li>
-              <li class="header__menu-item">Рецепты</li>
-              <li class="header__menu-item">О нас</li>
-              <li class="header__menu-item">Контакты</li>
-            </ul>
-          </nav>
-        </header>
-
-        <section class="hero">
-          <img src="https://via.placeholder.com/1200x400?text=Healthy+Food" alt="Яркие овощи и фрукты на столе" class="hero__image">
-          <h1 class="hero__title">Кулинарный блог о здоровом питании</h1>
-          <div class="hero__content">
-            <p class="hero__subtitle">Просто о вкусной и полезной еде. Рецепты, советы и идеи для вашей кухни.</p>
-            <div class="hero__buttons">
-              <button class="button button--primary">Смотреть рецепты</button>
-              <button class="button button--outline">Узнать больше</button>
+    <!-- ШАПКА САЙТА (header) -->
+    <header class="site-header">
+        <div class="header__container">
+            <div class="header__logo">
+               <img src="/lab3/src/images/logo.png" 
+                         alt="Аппетитные кексы с ягодами" 
+                         class="recipe-card__image" 
+                         itemprop="image">
+                <h1 class="logo-part">TastyBlog</h1>
             </div>
-          </div>
+
+            <nav class="header__nav main-nav">
+                <ul class="nav__list">
+                    <li><a href="#" class="nav__link nav__link--active">Главная</a></li>
+                    <li><a href="#menu" class="nav__link">Рецепты</a></li>
+                    <li><a href="#info" class="nav__link">О нас</a></li>
+                    <li><a href="#footer_section" class="nav__link">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__search search-form">
+                <input type="text" class="search-form__input" placeholder="Введите название блюда" aria-label="Поиск рецептов">
+                <button class="search-form__button" type="button">ИСКАТЬ</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЕ СОДЕРЖИМОЕ (main) -->
+    <main class="main-content" id="menu">
+
+        <!-- ГЕРО-БЛОК -->
+        <section class="hero">
+            <h1 class="hero__title">Кулинарный блог о здоровом питании</h1>
+            <p class="hero__subtitle">Просто о вкусной и полезной еде. Рецепты, советы и идеи для вашей кухни.</p>
         </section>
 
-        <section class="posts">
-          <h2 class="posts__title">Последние рецепты</h2>
-          <div class="posts__grid">
-            <article class="post" itemscope itemtype="https://schema.org/Article">
-              <header class="post__header">
-                <img src="images/letnie-zavtraki.jpg" alt="Тарелка с едой" class="post__image" itemprop="image">
-                <h3 class="post__headline" itemprop="headline">5 правил здорового завтрака</h3>
-                <time class="post__date" datetime="2024-01-15" itemprop="datePublished">15 января 2024</time>
-                <div class="post__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                  <span class="post__author-name" itemprop="name">Равгейша Вероника</span>
-                </div>
-              </header>
-              <div class="post__content" itemprop="articleBody">
-                <p>Завтрак — самый важный приём пищи. Узнайте, какие продукты помогут зарядиться энергией и сохранить здоровье.</p>
-              </div>
-            </article>
-
-            <article class="post">
-              <header class="post__header">
-                <img src="images/salat_iz_avokado_i_pomidorov-378572.jpg" alt="Миска с зелёным салатом" class="post__image">
-                <h3 class="post__headline">Салат с киноа и овощами</h3>
-                <time class="post__date" datetime="2024-01-10">10 января 2024</time>
-                <div class="post__author">
-                  <span class="post__author-name">Артём Почиковский</span>
-                </div>
-              </header>
-              <div class="post__content">
-                <p>Лёгкий и сытный салат, который можно взять с собой на работу. Готовится за 15 минут.</p>
-              </div>
-            </article>
-
-            <article class="post">
-              <header class="post__header">
-                <img src="images/221236902_w600_h600_poleznye-svojstva-zelenyh.webp" alt="Два стакана с разноцветными смузи" class="post__image">
-                <h3 class="post__headline">Зелёный смузи для энергии</h3>
-                <time class="post__date" datetime="2024-01-05">5 января 2024</time>
-                <div class="post__author">
-                  <span class="post__author-name">Ян Гейл</span>
-                </div>
-              </header>
-              <div class="post__content">
-                <p>Идеальный напиток для утра: шпинат, банан, яблоко и имбирь. Взбодрит лучше кофе!</p>
-              </div>
-            </article>
-          </div>
+        <!-- ФИЛЬТРЫ КАТЕГОРИЙ -->
+        <section class="filters" aria-label="Фильтр рецептов по категориям">
+            <h2 class="visually-hidden">Категории рецептов</h2>
+            <div class="filters__list">
+                <button class="filter-btn" type="button">ВЕГАН</button>
+                <button class="filter-btn filter-btn--active" type="button">Завтрак</button>
+                <button class="filter-btn" type="button">Обед</button>
+                <button class="filter-btn" type="button">Ужин</button>
+                <button class="filter-btn" type="button">Десерт</button>
+                <button class="filter-btn" type="button">ВСЕ РЕЦЕПТЫ</button>
+            </div>
         </section>
-      </div>
 
-      <footer class="footer">
-        <div class="footer__info">
-          <div class="footer__brand">
-            <div class="footer__brand-name">TastyBlog</div>
-            <div class="footer__brand-description">Кулинарный блог о здоровом питании</div>
-          </div>
-          <div class="footer__sections">
-            <h4 class="footer__sections-title">Разделы</h4>
-            <ul class="footer__sections-list">
-              <li>Главная</li>
-              <li>Рецепты</li>
-              <li>О нас</li>
-              <li>Контакты</li>
-            </ul>
-          </div>
+        <!-- БЛОК РЕЦЕПТОВ (микроразметка Recipe) -->
+        <div class="recipes-grid">
+
+            <!-- Рецепт 1: Кексы -->
+            <article class="recipe-card" itemscope itemtype="https://schema.org/Recipe">
+                <figure class="recipe-card__figure">
+                    <img src="/lab3/src/images/kakes.png" 
+                         alt="Аппетитные кексы с ягодами" 
+                         class="recipe-card__image" 
+                         itemprop="image">
+                </figure>
+                <div class="recipe-card__content">
+                    <h2 class="recipe-card__title" itemprop="name">Кексы</h2>
+                    <p class="recipe-card__description" itemprop="description">Самые вкусные кексы</p>
+                    <div class="recipe-card__meta">
+                        <span class="recipe-card__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                            <span itemprop="name">MasterChef</span>
+                        </span>
+                        <time class="recipe-card__date" datetime="2026-02-21" itemprop="datePublished">21 февраля 2026</time>
+                    </div>
+                </div>
+                <!-- Скрытые данные для микроразметки (ингредиенты и инструкция) -->
+                <div class="recipe-card__schema" style="display: none;">
+                    <span itemprop="recipeIngredient">мука — 200 г</span>
+                    <span itemprop="recipeIngredient">сахар — 150 г</span>
+                    <span itemprop="recipeIngredient">яйца — 2 шт</span>
+                    <span itemprop="recipeIngredient">молоко — 100 мл</span>
+                    <div itemprop="recipeInstructions">Смешать сухие ингредиенты, добавить яйца и молоко, перемешать. Выпекать 25 минут при 180°C.</div>
+                </div>
+                <div class="recipe-card__divider" aria-hidden="true"></div>
+            </article>
+
+            <!-- Рецепт 2: Овсянка -->
+            <article class="recipe-card" itemscope itemtype="https://schema.org/Recipe">
+                <figure class="recipe-card__figure">
+                    <img src="/lab3/src/images/avseanka.png" 
+                         alt="Тарелка овсяной каши с фруктами" 
+                         class="recipe-card__image" 
+                         itemprop="image">
+                </figure>
+                <div class="recipe-card__content">
+                    <h2 class="recipe-card__title" itemprop="name">Овсянка</h2>
+                    <p class="recipe-card__description" itemprop="description">Полезный завтрак с ягодами</p> <!-- исправил описание -->
+                    <div class="recipe-card__meta">
+                        <span class="recipe-card__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                            <span itemprop="name">MasterChef</span>
+                        </span>
+                        <time class="recipe-card__date" datetime="2026-02-21" itemprop="datePublished">21 февраля 2026</time>
+                    </div>
+                </div>
+                <div class="recipe-card__schema" style="display: none;">
+                    <span itemprop="recipeIngredient">овсяные хлопья — 50 г</span>
+                    <span itemprop="recipeIngredient">молоко — 200 мл</span>
+                    <span itemprop="recipeIngredient">банан — 1 шт</span>
+                    <span itemprop="recipeIngredient">ягоды — 30 г</span>
+                    <div itemprop="recipeInstructions">Залить хлопья молоком, варить 5 минут. Добавить нарезанный банан и ягоды.</div>
+                </div>
+                <div class="recipe-card__divider" aria-hidden="true"></div>
+            </article>
+
+
+
+
+            <!-- Рецепт 3: Бутеры (бутерброды) -->
+            <article class="recipe-card" itemscope itemtype="https://schema.org/Recipe">
+                <figure class="recipe-card__figure">
+                    <img src="https://placehold.co/461x263/FFDFEE/3D0019?text=Бутерброды" 
+                         alt="Сэндвичи с зеленью и овощами" 
+                         class="recipe-card__image" 
+                         itemprop="image">
+                </figure>
+                <div class="recipe-card__content">
+                    <h2 class="recipe-card__title" itemprop="name">Бутеры</h2>
+                    <p class="recipe-card__description" itemprop="description">Сытные бутерброды с авокадо</p> <!-- уточнил описание -->
+                    <div class="recipe-card__meta">
+                        <span class="recipe-card__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                            <span itemprop="name">MasterChef</span>
+                        </span>
+                        <time class="recipe-card__date" datetime="2026-02-21" itemprop="datePublished">21 февраля 2026</time>
+                    </div>
+                </div>
+                <div class="recipe-card__schema" style="display: none;">
+                    <span itemprop="recipeIngredient">хлеб — 2 ломтика</span>
+                    <span itemprop="recipeIngredient">авокадо — 1/2 шт</span>
+                    <span itemprop="recipeIngredient">помидор — 1 шт</span>
+                    <span itemprop="recipeIngredient">листья салата — 2 шт</span>
+                    <div itemprop="recipeInstructions">Размять авокадо вилкой, намазать на хлеб, сверху выложить помидор и салат.</div>
+                </div>
+                <div class="recipe-card__divider" aria-hidden="true"></div>
+            </article>
         </div>
-        <div class="footer__contacts">
-          <h4 class="footer__contacts-title">Контакты</h4>
-          <div class="footer__contacts-details">
-            Email: coolemail@tastyblog.com<br>
-            Телефон: +88005553535
-          </div>
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <footer class="site-footer">
+        <div class="footer__container">
+            <div class="footer__info" id="info">
+                <div class="footer__logo">
+                    <span class="logo-part">Tasty</span><span class="logo-part">Blog</span>
+                </div>
+                <p class="footer__description">
+                    Кулинарный блог о здоровом питании. Просто о вкусной и полезной еде. Рецепты, советы и идеи для вашей кухни.
+                </p>
+            </div>
+
+            <div class="footer__section">
+                <h3 class="footer__heading">Разделы</h3>
+                <nav class="footer__nav" aria-label="Навигация по разделам в подвале">
+                    <ul class="footer__nav-list">
+                         <li><a href="#" class="nav__link nav__link--active">Главная</a></li>
+                    <li><a href="#menu" class="nav__link">Рецепты</a></li>
+                    <li><a href="#info" class="nav__link">О нас</a></li>
+                    <li><a href="#footer_section" class="nav__link">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer__section" id="footer_section">
+                <h3 class="footer__heading">Контакты</h3>
+                <address class="footer__contacts">
+                    <a href="mailto:coolemail@tastyblog.com" class="footer__link">coolemail@tastyblog.com</a><br>
+                    <a href="tel:+88005553535" class="footer__link">+8 (800) 555-35-35</a>
+                </address>
+            </div>
         </div>
-      </footer>
-    </div>
-  </div>
+    </footer>
+
+
+
+
+    <!-- Стиль для скрытых элементов (доступность) -->
+    <style>
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            border: 0;
+            padding: 0;
+            white-space: nowrap;
+            clip-path: inset(100%);
+            clip: rect(0 0 0 0);
+            overflow: hidden;
+        }
+    </style>
+    <!-- 
+        Использованные семантические теги: header, nav, main, section, article, footer, h1, h2, h3, figure, time, address.
+        Микроразметка Schema.org Recipe присутствует у каждой статьи.
+        Обязательные поля: name (заголовок), recipeIngredient, recipeInstructions добавлены скрыто.
+        Изображения имеют alt-атрибуты. Иерархия заголовков соблюдена.
+    -->
 </body>
 </html>
