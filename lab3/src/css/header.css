@@ -1,0 +1,320 @@
+@import url('variables.css');
+
+.logo-short {
+  display: none;
+  font-family: var(--font-primary);
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap; /* Прячем короткое название */
+}
+.site-header {
+  background-color: white;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Легкая линия снизу для отделения */
+}
+
+.header__container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 15vw; /* Твой стандартный отступ */
+  align-items: center;
+  height: 12vh;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* ЛОГОТИП */
+.header__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Чтобы ссылка-лого не подчеркивалась */
+  color: var(--color-accent);
+}
+
+.header__logo img {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.logo-part {
+  font-family: var(--font-primary);
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* НАВИГАЦИЯ */
+.header__nav {
+  display: flex;
+  justify-content: center;
+  flex: 1; /* Занимает всё пространство между лого и поиском */
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: 40px; /* Расстояние между ссылками */
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #262522;
+  font-family: var(--font-primary);
+  font-size: 20px !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav__link:hover {
+  color: var(--color-primary); /* Цвет при наведении как у кнопок */
+}
+
+/* ПОИСК */
+.search-form {
+  display: flex;
+  align-items: center;
+  background-color: #ffdfee; /* Твой фирменный розовый фон */
+  border-radius: 50px;
+  padding: 5px 5px 5px 20px;
+  width: 100%;
+  max-width: 300px; /* Немного увеличил для удобства ввода */
+  box-sizing: border-box;
+}
+
+.search-form__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #262522;
+  font-family: var(--font-secondary);
+  padding-right: 10px;
+}
+
+.search-form__input::placeholder {
+  color: rgba(38, 37, 34, 0.6);
+}
+
+.search-form__button {
+  background-color: var(--color-primary);
+
+  color: var(--color-accent);
+
+  border: none;
+
+  border-radius: 50%;
+
+  width: 40px;
+
+  height: 40px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  margin-left: 10px;
+}
+
+/* Настройки размера самой иконки */
+
+.search-icon {
+  width: 20px;
+
+  height: 20px;
+
+  /* currentColor подтянет цвет из свойства color кнопки */
+}
+
+.search-form__button:hover {
+  background-color: #350a21; /* Чуть темнее при наведении */
+
+  color: #fce1ed; /* Иконка может тоже менять цвет */
+}
+
+/* Кнопка бургера скрыта на ПК */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: #262522;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+@media (max-width: 1600px) {
+  .site-header .logo-part  {
+    display: none; /* Прячем TastyBlog */
+  }
+
+   .site-header .logo-short {
+    display: inline; /* Показываем TB */
+    font-size: 32px; /* Можно сделать чуть крупнее, раз букв мало */
+  }
+}
+
+/* МОБИЛЬНАЯ АДАПТАЦИЯ (меньше 850px) */
+@media (max-width: 850px) {
+  .site-header .logo-part  {
+    display: none; /* Прячем TastyBlog */
+  }
+
+   .site-header .logo-short {
+    display: inline; /* Показываем TB */
+    font-size: 32px; /* Можно сделать чуть крупнее, раз букв мало */
+  }
+
+  .header__container {
+    margin: 0 5vw; /* Уменьшаем отступы, чтобы всё точно влезло */
+    gap: 10px; /* Уменьшаем зазор между лого, поиском и бургером */
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .header__nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Скрыто */
+    width: 250px;
+    height: 100vh;
+    background: white;
+    padding: 80px 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: 0.4s;
+    z-index: 1000;
+  }
+
+  .header__nav.is-active {
+    right: 0;
+  } /* Показать меню */
+
+  .nav__list {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  /* ПОИСК: строка возвращена, ничего не скрывается */
+  .search-form {
+    max-width: 180px; /* Ограничил, чтобы влезло в строку с лого */
+    width: 100%;
+    padding: 5px 5px 5px 15px;
+    background-color: #ffdfee;
+    display: flex;
+    border-radius: 50px;
+  }
+
+  .search-form__input {
+    display: block; /* Строка ввода на месте */
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 12px;
+  }
+
+  .search-form__button {
+    margin: 0;
+    background-color: var(--color-primary);
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Анимация крестика */
+.menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+.menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+
+
+
+
+
+/* МЕНЯЕМ ПОРОГ НА 1300px */
+@media (max-width: 1360px) {
+  /* Переключаем логотип на TB */
+  .site-header .logo-part  {
+    display: none; /* Прячем TastyBlog */
+  }
+
+   .site-header .logo-short {
+    display: inline; /* Показываем TB */
+    font-size: 32px; /* Можно сделать чуть крупнее, раз букв мало */
+  }
+
+  /* Включаем бургер */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Прячем основную навигацию в выпадашку */
+  .header__nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Меню спрятано справа */
+    width: 280px;
+    height: 100vh;
+    background: white;
+    padding: 80px 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: 0.4s;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .header__nav.is-active {
+    right: 0; /* Выезжает при клике */
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start;
+  }
+
+  /* Корректируем контейнер и поиск, чтобы не теснились */
+  .header__container {
+    margin: 0 5vw; /* Уменьшаем отступы со стандартных 15vw */
+    gap: 15px;
+  }
+
+  
+}

@@ -5,23 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TastyBlog</title>
     <link rel="icon" type="image/png" href="/lab3/src/images/logo.png" />
+    <link rel="stylesheet" href="/lab3/src/css/style.css" />
   </head>
-  <body>
+  <body class="body">
     <header class="site-header">
       <div class="header__container">
         <div class="header__logo">
-          <img
-            src="/lab3/src/images/logo.png"
-            alt="Аппетитные кексы с ягодами"
-            class="recipe-card__image"
-            itemprop="image"
-          />
-          <h1 class="logo-part">TastyBlog</h1>
+          <img src="/lab3/src/images/logo.png" alt="Аппетит" />
+          <span class="logo-part">TastyBlog</span>
+          <span class="logo-short">TB</span>
         </div>
 
         <nav class="header__nav main-nav">
           <ul class="nav__list">
-            <li><a href="#" class="nav__link nav__link--active">Главная</a></li>
+            <li><a href="#" class="nav__link">Главная</a></li>
             <li><a href="#menu" class="nav__link">Рецепты</a></li>
             <li><a href="#info" class="nav__link">О нас</a></li>
             <li><a href="#footer_section" class="nav__link">Контакты</a></li>
@@ -29,14 +26,36 @@
         </nav>
 
         <div class="header__search search-form">
-          <input
-            type="text"
-            class="search-form__input"
-            placeholder="Введите название блюда"
-            aria-label="Поиск рецептов"
-          />
-          <button class="search-form__button" type="button">ИСКАТЬ</button>
+          <input type="text" class="search-form__input" placeholder="Введите название блюда" />
+          <button class="search-form__button" type="button">
+            <svg
+              class="search-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M21 21L16.65 16.65"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
         </div>
+        <button class="menu-toggle" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
 
@@ -48,11 +67,10 @@
         </p>
       </section>
 
-      <section class="filters" aria-label="Фильтр рецептов по категориям">
-        <h2 class="visually-hidden">Категории рецептов</h2>
+      <section class="filters">
         <div class="filters__list">
           <button class="filter-btn" type="button">ВЕГАН</button>
-          <button class="filter-btn filter-btn--active" type="button">Завтрак</button>
+          <button class="filter-btn" type="button">Завтрак</button>
           <button class="filter-btn" type="button">Обед</button>
           <button class="filter-btn" type="button">Ужин</button>
           <button class="filter-btn" type="button">Десерт</button>
@@ -73,6 +91,7 @@
           <div class="recipe-card__content">
             <h2 class="recipe-card__title" itemprop="name">Кексы</h2>
             <p class="recipe-card__description" itemprop="description">Самые вкусные кексы</p>
+           
             <div class="recipe-card__meta">
               <span
                 class="recipe-card__author"
@@ -98,7 +117,6 @@
               180°C.
             </div>
           </div>
-          <div class="recipe-card__divider" aria-hidden="true"></div>
         </article>
 
         <article class="recipe-card" itemscope itemtype="https://schema.org/Recipe">
@@ -115,6 +133,7 @@
             <p class="recipe-card__description" itemprop="description">
               Полезный завтрак с ягодами
             </p>
+            
 
             <div class="recipe-card__meta">
               <span
@@ -139,13 +158,12 @@
               Залить хлопья молоком, варить 5 минут. Добавить нарезанный банан и ягоды.
             </div>
           </div>
-          <div class="recipe-card__divider" aria-hidden="true"></div>
         </article>
 
         <article class="recipe-card" itemscope itemtype="https://schema.org/Recipe">
           <figure class="recipe-card__figure">
             <img
-              src="https://placehold.co/461x263/FFDFEE/3D0019?text=Бутерброды"
+              src="/lab3/src/images/sandwishes.png"
               alt="Сэндвичи с зеленью и овощами"
               class="recipe-card__image"
               itemprop="image"
@@ -156,7 +174,7 @@
             <p class="recipe-card__description" itemprop="description">
               Сытные бутерброды с авокадо
             </p>
-
+            
             <div class="recipe-card__meta">
               <span
                 class="recipe-card__author"
@@ -180,7 +198,6 @@
               Размять авокадо вилкой, намазать на хлеб, сверху выложить помидор и салат.
             </div>
           </div>
-          <div class="recipe-card__divider" aria-hidden="true"></div>
         </article>
       </div>
     </main>
@@ -201,7 +218,7 @@
           <h3 class="footer__heading">Разделы</h3>
           <nav class="footer__nav" aria-label="Навигация по разделам в подвале">
             <ul class="footer__nav-list">
-              <li><a href="#" class="nav__link nav__link--active">Главная</a></li>
+              <li><a href="#" class="nav__link">Главная</a></li>
               <li><a href="#menu" class="nav__link">Рецепты</a></li>
               <li><a href="#info" class="nav__link">О нас</a></li>
               <li><a href="#footer_section" class="nav__link">Контакты</a></li>
@@ -219,5 +236,25 @@
         </div>
       </div>
     </footer>
+    <script src="js/script.js"></script>
+    <script>
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.header__nav');
+      const navLinks = document.querySelectorAll('.nav__link'); // Находим все ссылки
+
+      // Открытие/закрытие по кнопке бургера
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('is-active');
+        toggle.classList.toggle('is-open');
+      });
+
+      // Закрытие меню при клике на ЛЮБУЮ ссылку
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('is-active');
+          toggle.classList.remove('is-open');
+        });
+      });
+    </script>
   </body>
 </html>
