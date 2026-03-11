@@ -1,90 +1,73 @@
-/* Общие настройки страницы */
 .body {
   background-color: var(--color-background);
 }
 
 .main-content {
-  margin: 0 15vw; /* Единый отступ для всего контента */
+  margin: 0 15vw;
 }
 
-/* Секция Hero */
 .hero {
   background-color: var(--color-primary-2);
   border-radius: 20px;
   padding: 5vw;
-  margin: 20px 0; /* Убрал auto, так как margin есть у main-content */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
   text-align: center;
   font-family: var(--font-primary);
   color: var(--color-accent);
 }
 
-/* --- ФИЛЬТРЫ --- */
 .filters {
   margin: 40px 0;
 }
 
 .filters__list {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; /* Растягивает кнопки от края до края */
-  flex-wrap: wrap;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 15px;
 }
 
 .filter-btn {
-  flex: 1; /* Кнопки делят всё свободное пространство поровну */
-  min-width: 160px;
-  max-width: 250px;
   height: 65px;
   box-sizing: border-box;
   border-radius: 60px;
   cursor: pointer;
-
   font-family: var(--font-secondary);
   font-weight: 500;
   font-size: 20px;
   text-transform: uppercase;
   transition: all 0.3s ease;
-
-  /* Дефолт: Розовые */
-  background-color: #ffdfee;
+  background-color: var(--color-background);
   color: var(--color-accent);
-  border: 1px solid #262522;
+  border: 1px solid var(--color-accent);
 }
 
-/* Ховер: Темный фон, розовый текст */
 .filter-btn:hover {
   background-color: var(--color-accent);
-  color: #ffdfee;
+  color: var(--color-background);
   border-color: var(--color-accent);
 }
 
-/* --- СЕТКА РЕЦЕПТОВ --- */
 .recipes-grid {
   display: grid;
-  /* Создаем 3 колонки, которые занимают всё место */
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin: 40px 0;
-  width: 100%;
 }
 
 .recipe-card {
-  display: flex; /* Картинка и текст внутри стоят в ряд */
+  display: flex;
   background-color: var(--color-primary-2);
   border-radius: 20px;
   overflow: hidden;
   height: 263px;
-  width: 100%; /* Занимает всю ширину своей ячейки грида */
+  width: 100%;
   position: relative;
   font-family: var(--font-primary);
 }
 
 .recipe-card__figure {
   margin: 0;
-  flex: 0 0 50%; /* Картинка занимает ровно половину карточки */
+  flex: 0 0 50%;
   height: 100%;
 }
 
@@ -96,21 +79,21 @@
 
 .recipe-card__content {
   flex: 1;
-  padding: 15px 20px;
+  padding: 15px 10px;
   display: flex;
   flex-direction: column;
-  min-width: 0; /* Чтобы текст не распирал карточку */
+  min-width: 0;
 }
 
 .recipe-card__title {
-  font-size: 28px; /* Чуть уменьшил, чтобы влезало в 3 колонки */
+  font-size: 25px;
   font-weight: 700;
-  margin: 0 0 5px 0;
+  margin-bottom: 5px;
 }
 
 .recipe-card__description {
   font-family: var(--font-secondary);
-  font-size: 16px;
+  font-size: 17px;
   opacity: 0.8;
   line-height: 1.2;
 }
@@ -129,19 +112,18 @@
   font-size: 10px;
 }
 
-/* --- АДАПТИВНОСТЬ --- */
 @media (max-width: 1200px) {
   .recipes-grid {
-    grid-template-columns: repeat(2, 1fr); /* На планшетах 2 в ряд */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 800px) {
   .recipes-grid {
-    grid-template-columns: 1fr; /* На телефонах 1 в ряд */
+    grid-template-columns: 1fr;
   }
   .main-content {
-    margin: 0 5vw; /* Уменьшаем отступы на маленьких экранах */
+    margin: 0 5vw;
   }
 }
 

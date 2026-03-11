@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'Montserrat Alternates';
-  src: url('/lab3/src/assets/fonts/MontserratAlternates-Bold.ttf') format('truetype');
+  src: url('/lab4/src/assets/fonts/MontserratAlternates-Bold.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Montserrat Alternates Thin';
-  src: url('/lab3/src/assets/fonts/MontserratAlternates-Medium.ttf') format('truetype');
+  src: url('/lab4/src/assets/fonts/MontserratAlternates-Medium.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
 }
@@ -15,9 +15,9 @@
 :root {
   --color-background: #ffdfee;
   --color-primary: #ed99c1;
-  --color-primary-2:#ed99c269;
+  --color-primary-2: #ed99c269;
   --color-accent: #3d0019;
   --color-secondary: #ffffff;
   --font-primary: 'Montserrat Alternates';
-  --font-secondary:'Montserrat Alternates Thin';
+  --font-secondary: 'Montserrat Alternates Thin';
 }
