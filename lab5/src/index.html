@@ -6,6 +6,7 @@
     <title>TastyBlog</title>
     <link rel="icon" type="image/png" href="/lab5/src/images/logo.png" />
     <link rel="stylesheet" href="/lab5/src/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body class="body">
     <header class="site-header">
@@ -276,6 +277,32 @@
     </dialog>
     <!-- <script src="/lab5/src/js/utils/helpers.js"></script>
     <script src="js/components/modal.js"></script> -->
+    <div id="sticky-timer" class="sticky-timer" style="display: none;">
+        <div class="sticky-timer__header">
+            <span class="sticky-timer__title">Таймер</span>
+        </div>
+        <div class="sticky-timer__body">
+            <div class="timer-setup">
+                <button class="setup-btn" id="minus-min">-</button>
+                <div class="input-wrapper">
+                    <input type="number" id="timer-minutes" value="10" min="1" max="180">
+                    <span>мин</span>
+                </div>
+                <button class="setup-btn" id="plus-min">+</button>
+            </div>
+            
+            <div class="sticky-timer__display" style="display: none;">10:00</div>
+            
+            <div class="sticky-timer__controls">
+                <button class="timer-btn-control start-stop" title="Старт/Пауза">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="timer-btn-control reset-close" title="Сбросить и закрыть">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
     <script src="/lab5/src/js/script.js"></script>
   </body>
 </html>
