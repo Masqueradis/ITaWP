@@ -1,9 +1,0 @@
-@import url('variables.css');
-@import url('header.css');
-@import url('main.css');
-@import url('footer.css');
-
-* {
-  margin: 0px;
-  padding: 0;
-}
