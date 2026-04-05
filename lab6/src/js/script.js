@@ -1,6 +1,10 @@
 /* ==========================================
    1. ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ И ПОИСК ЭЛЕМЕНТОВ
    ========================================== */
+import { fetchRandomRecipe } from './api/apiService.js';
+import { parseRecipeData } from './utils/dataParser.js';
+import { StorageService } from './storage/localStorage.js';
+
 const header = document.querySelector('.site-header');
 const allCards = document.querySelectorAll('.recipe-card');
 const mainContainer = document.getElementById('menu');
@@ -19,7 +23,7 @@ const btnResetClose = stickyTimer.querySelector('.reset-close');
 const iconStartStop = btnStartStop.querySelector('i');
 
 // --- НОВОЕ: ПУТЬ К ВАШЕМУ БУРГЕРУ-ЛОГОТИПУ ---
-const LOGO_BURGER_SRC = '/lab5/src/images/logo.png';
+const LOGO_BURGER_SRC = '/lab6/src/images/logo.png';
 
 console.log('Найдены базовые элементы страницы:', {
   header: header,
@@ -261,3 +265,100 @@ const closeModal = () => {
 
 closeBtn.addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+/* ==========================================
+   5. ИНТЕГРАЦИЯ API И UI (СЛУЧАЙНЫЙ РЕЦЕПТ)
+   ========================================== */
+const initApiFeature = () => {
+    const mainContainer = document.querySelector('.main-content');
+    if (!mainContainer) return;
+
+    // Шаг 4: Динамическое создание UI для взаимодействия с API
+    const apiSection = document.createElement('div');
+    apiSection.className = 'hero api-block';
+    apiSection.style.marginTop = '30px';
+    apiSection.innerHTML = `
+        <h2>Не знаете, что приготовить?</h2>
+        <button id="btn-fetch-api" class="filter-btn hover" style="margin: 20px auto;">Получить случайный рецепт</button>
+        <div id="api-status" style="margin-top: 10px; font-weight: bold;"></div>
+        
+        <div id="api-result" style="display: none; margin-top: 20px; text-align: left; background: var(--color-secondary); padding: 20px; border-radius: 15px; color: var(--color-accent);">
+            <h3 id="api-title" style="margin-bottom: 15px; font-size: 24px;"></h3>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <img id="api-img" src="" alt="Рецепт" style="max-width: 300px; border-radius: 10px; object-fit: cover;">
+                <p id="api-text" style="flex: 1; font-family: var(--font-secondary); line-height: 1.5; max-height: 300px; overflow-y: auto;"></p>
+            </div>
+        </div>
+    `;
+    
+    // Вставляем блок перед сеткой рецептов
+    const recipesGrid = document.querySelector('.recipes-grid');
+    if (recipesGrid) {
+        recipesGrid.parentNode.insertBefore(apiSection, recipesGrid);
+    } else {
+        mainContainer.appendChild(apiSection);
+    }
+
+    const btnFetch = document.getElementById('btn-fetch-api');
+    const statusBox = document.getElementById('api-status');
+    const resultBox = document.getElementById('api-result');
+
+    // Функция обновления UI данными (Шаг 4)
+    const renderRecipe = (data) => {
+        document.getElementById('api-title').innerText = `${data.title} (${data.area})`;
+        document.getElementById('api-img').src = data.image;
+        document.getElementById('api-text').innerText = data.instructions;
+        resultBox.style.display = 'block';
+    };
+
+    // Обработчик кнопки
+    btnFetch.addEventListener('click', async () => {
+        // Установка состояния загрузки
+        statusBox.innerText = '⏳ Поиск рецепта...';
+        statusBox.style.color = 'inherit';
+        resultBox.style.display = 'none';
+        btnFetch.disabled = true;
+
+        try {
+            let recipeData = null;
+
+            // Шаг 6: Проверка работы при отключенном интернете
+            if (!navigator.onLine) {
+                statusBox.innerText = '🔴 Нет сети. Ищем рецепт в кэше...';
+                recipeData = StorageService.getData();
+                
+                if (!recipeData) {
+                    throw new Error('Офлайн режим: в кэше нет сохраненных данных.');
+                }
+                setTimeout(() => {
+                    statusBox.innerText = '🟢 Показан последний загруженный рецепт (Офлайн)';
+                    statusBox.style.color = '#28a745';
+                }, 1000);
+            } else {
+                // Онлайн запрос
+                const rawData = await fetchRandomRecipe();
+                recipeData = parseRecipeData(rawData);
+                
+                if (recipeData) {
+                    StorageService.saveData(recipeData); // Кэшируем успешный ответ
+                    statusBox.innerText = ''; // Очищаем статус
+                } else {
+                    throw new Error('API вернул пустой результат');
+                }
+            }
+
+            renderRecipe(recipeData);
+
+        } catch (error) {
+            // Шаг 6: Убедитесь в правильной обработке ошибок API
+            statusBox.innerText = `❌ Ошибка: ${error.message}`;
+            statusBox.style.color = 'red';
+        } finally {
+            btnFetch.disabled = false;
+        }
+    });
+};
+
+// Запускаем инициализацию API фичи после загрузки DOM
+document.addEventListener('DOMContentLoaded', initApiFeature);
+
