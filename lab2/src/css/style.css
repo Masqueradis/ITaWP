@@ -1,0 +1,425 @@
+  
+    /* 
+      ============================================
+      Desktop – Homepage (адаптировано из макета)
+      Исправлены конфликты: 
+      - универсальные стили перенесены на body
+      - header получил position: relative
+      - контакты в футере изолированы через .frame8 .contacts
+      - высота текстовых блоков сделана автоматической для читаемости
+      ============================================
+    */
+
+    /* Базовые сбросы и главный контейнер — как в * из макета, но только для body */
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      margin: 0; /* убираем отступы браузера */
+      gap: 359px; /* расстояние между frame10 и frame11 */
+      position: relative;
+      width: 1440px;
+      height: 1024px;
+      background: #E1F5FE; /* Light Blue */
+      font-family: 'Inter', sans-serif;
+      box-sizing: border-box;
+    }
+
+    /* Обнуляем box-sizing для всех элементов — удобно */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* ---------- FRAME 10 (верх: шапка + герой) ---------- */
+    .frame10 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px;
+      gap: 61px;
+      width: 1440px;
+      height: 352px;
+      flex: none;
+      order: 0;
+      align-self: stretch;
+      flex-grow: 0;
+    }
+
+    /* Шапка = Frame 2 – теперь relative для абсолютного позиционирования внутри */
+    header {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 0px;
+      gap: 14px;
+      isolation: isolate;
+      background: #FFFFFF;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+      flex: none;
+      order: 0;
+      align-self: stretch;
+      flex-grow: 0;
+      position: relative; /* важно для абсолютных .tastyblog и .frame1 */
+      min-height: 80px; /* padding 40px сверху/снизу даёт высоту, но для надёжности */
+    }
+
+    /* Логотип TastyBlog в шапке — абсолютный */
+    .tastyblog {
+      position: absolute;
+      width: 137px;
+      height: 34px;
+      left: calc(50% - 137px/2 + 0.5px);
+      top: 6px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 34px;
+      color: #039BE5; /* Dark Blue */
+      font-variation-settings: 'slnt' 0;
+      margin: 0;
+      flex: none;
+      order: 0;
+      z-index: 0;
+    }
+
+    /* Навигация — абсолютная, центрированная */
+    .frame1 {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px;
+      gap: 25px;
+      position: absolute;
+      width: 333px;
+      height: 19px;
+      left: calc(50% - 333px/2 + 0.5px);
+      top: 50px;
+      flex: none;
+      order: 1;
+      z-index: 1;
+    }
+
+    /* Пункты навигации */
+    .hero, .reciepe, .about, .contacts {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      color: #000000;
+      font-variation-settings: 'slnt' 0;
+      flex: none;
+      flex-grow: 0;
+      white-space: nowrap;
+    }
+    .hero { width: 65px; }
+    .reciepe { width: 70px; }
+    .about { width: 45px; }
+    .contacts { width: 78px; } /* только для навигации, футер переопределён через .frame8 .contacts */
+
+    /* Заголовок героя */
+    .herosubtitle {
+      width: 797px;
+      height: 48px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      text-align: center;
+      color: #039BE5;
+      font-variation-settings: 'slnt' 0;
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+      margin: 0; /* сброс */
+    }
+
+    /* Блок с подзаголовком и кнопками */
+    .frame9 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0px;
+      gap: 32px;
+      width: 700px;
+      /* высота автоматически, чтобы текст не обрезался */
+      height: auto;
+      flex: none;
+      order: 2;
+      flex-grow: 0;
+    }
+
+    /* Подзаголовок (описание) */
+    .subtitle {
+      width: 700px;
+      height: auto; /* было 22px – меняем, чтобы текст помещался */
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 26px; /* немного больше для комфортного чтения */
+      text-align: center;
+      color: #5A5A5A;
+      flex: none;
+      align-self: stretch;
+      flex-grow: 0;
+      margin: 0;
+    }
+
+    /* Контейнер кнопок */
+    .frame5 {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 25px;
+      width: 366px;
+      height: 48px;
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+    }
+
+    /* Кнопка "Смотреть рецепты" */
+    .frame3 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 13px;
+      gap: 10px;
+      width: 170.5px;
+      height: 48px;
+      background: #81C784;
+      border-radius: 8px;
+      flex: none;
+      order: 0;
+      flex-grow: 1;
+    }
+    .watch {
+      width: 154px;
+      height: 19px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: center;
+      color: #FFFFFF;
+      font-variation-settings: 'slnt' 0;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    /* Кнопка "Узнать больше" */
+    .frame4 {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 29px;
+      gap: 10px;
+      width: 170.5px;
+      height: 48px;
+      border: 2px solid #4FC3F7;
+      border-radius: 8px;
+      flex: none;
+      order: 1;
+      flex-grow: 1;
+    }
+    .learn {
+      width: 121px;
+      height: 19px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: center;
+      color: #4FC3F7;
+      font-variation-settings: 'slnt' 0;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    /* ---------- FRAME 11 (футер) ---------- */
+    .frame11 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 33px 47px 122px 107px;
+      gap: 336px;
+      width: 1440px;
+      height: 313px;
+      background: #039BE5;
+      border-radius: 0px;
+      flex: none;
+      order: 1;
+      align-self: stretch;
+      flex-grow: 0;
+    }
+
+    /* Внутренний центрированный контейнер футера */
+    .frame12 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px;
+      gap: 213px;
+      margin: 0 auto;
+      width: 676px;
+      height: 158px;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    /* Блок "TastyBlog + подпись" */
+    .frame6 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 12px;
+      margin: 0 auto;
+      width: 551px;
+      height: 68px;
+      flex: none;
+      order: 0;
+      flex-grow: 1;
+    }
+    .footertasty {
+      width: 551px;
+      height: 34px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 34px;
+      color: #FFFFFF;
+      font-variation-settings: 'slnt' 0;
+      flex: none;
+      order: 0;
+      align-self: stretch;
+      flex-grow: 0;
+      margin: 0;
+    }
+    .footersubtitle {
+      width: 551px;
+      height: 22px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+      color: #FFFFFF;
+      flex: none;
+      order: 1;
+      align-self: stretch;
+      flex-grow: 0;
+      margin: 0;
+    }
+
+    /* Блок "Разделы" */
+    .frame7 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 12px;
+      margin: 0 auto;
+      width: 125px;
+      height: 157px;
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+    }
+    .sectionstitle {
+      width: 125px;
+      height: 34px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 34px;
+      text-align: center;
+      color: #FFFFFF;
+      font-variation-settings: 'slnt' 0;
+      flex: none;
+      order: 0;
+      align-self: stretch;
+      flex-grow: 0;
+      margin: 0;
+    }
+    .sections {
+      width: 84px;
+      height: 88px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 22px;
+      color: #FFFFFF;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+      margin: 0;
+      white-space: pre-line; /* чтобы текст отображался как в макете (в столбик) */
+    }
+
+    /* Блок "Контакты" в футере — ИСПРАВЛЕНО: теперь .frame8 .contacts */
+    .frame8 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 12px;
+      margin: 0 auto;
+      width: 274px;
+      height: 90px;
+      flex: none;
+      order: 1;
+      flex-grow: 0;
+    }
+    .frame8 .contacts {
+      width: 274px;
+      height: 34px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 34px;
+      color: #FFFFFF;
+      font-variation-settings: 'slnt' 0;
+      flex: none;
+      order: 0;
+      align-self: stretch;
+      flex-grow: 0;
+      margin: 0;
+    }
+    .email {
+      width: 274px;
+      height: 44px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 26px;
+      color: #FFFFFF;
+      flex: none;
+      order: 1;
+      align-self: stretch;
+      flex-grow: 0;
+      margin: 0;
+    }
+
+    /* Дополнительно: убираем лишние отступы у ссылок/кнопок */
+    .frame3, .frame4, .frame1, .frame5, .frame6, .frame7, .frame8, .frame9, .frame10, .frame11, .frame12 {
+      margin: 0;
+    }
+
+    /* Чтобы текст в .sections отображался столбиком как в описании */
+    .sections {
+      white-space: pre-line;
+      line-height: 1.5;
+    }
+  
