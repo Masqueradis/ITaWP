@@ -1,8 +1,12 @@
 .body {
   background-color: var(--color-background);
+  display: flex;
+  flex-direction: column; /* Элементы (header, main, footer) идут друг под другом */
+  min-height: 100vh;
 }
 
 .main-content {
+  flex: 1;
   margin: 0 15vw;
 }
 
@@ -16,6 +20,85 @@
   color: var(--color-accent);
 }
 
+/* Основной контейнер */
+.api-block {
+  margin-top: 30px;
+  text-align: center;
+  padding: 5vw;
+  background-color: var(--color-primary-2); /* И фон, если нужно */
+  border-radius: 20px;
+}
+
+/* Кнопка */
+.api_btn {
+  margin: 20px auto;
+  display: block;
+  width: 400px;
+  background-color: var(--color-accent);
+  padding: 10 10;
+  color: var(--color-background);
+  border: 1px solid var(--color-accent);
+  height: 65px;
+  border-radius: 60px;
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+/* Статус (загрузка/ошибка) */
+#api-status {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Карточка с результатом (изначально скрыта) */
+.api-card {
+  display: none;
+  margin-top: 20px;
+  text-align: left;
+  background: var(--color-secondary);
+  padding: 20px;
+  border-radius: 15px;
+  color: var(--color-accent);
+}
+
+/* Заголовок рецепта внутри карточки */
+#api-title {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+/* Контейнер для фото и текста */
+.api-content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Фотография рецепта */
+#api-img {
+  max-width: 300px;
+  width: 100%; /* Для адаптивности на мобилках */
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Текст инструкции */
+#api-text {
+  flex: 1;
+  font-family: var(--font-secondary);
+  line-height: 1.5;
+  max-height: 300px;
+  overflow-y: auto; /* Прокрутка, если текст слишком длинный */
+}
+
+#api-text {
+  scrollbar-width: thin; /* Тонкая полоска */
+  scrollbar-color: var(--color-primary-2) transparent; /* Цвет ползунка и фон дорожки */
+}
+
 .filters__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -24,6 +107,7 @@
 
 .filter-btn {
   height: 65px;
+
   box-sizing: border-box;
   border-radius: 60px;
   cursor: pointer;
@@ -40,6 +124,7 @@
 .filter-btn.hover,
 .filter-btn.active {
   background-color: var(--color-accent);
+  padding: 10 10;
   color: var(--color-background);
   border-color: var(--color-accent);
 }
@@ -125,6 +210,67 @@
   font-family: var(--font-secondary);
   font-weight: 700;
   font-size: 10px;
+}
+
+/* Кнопка сердечко */
+.recipe-card__favorite {
+  position: absolute; /* Фиксируем относительно карточки */
+  top: 15px; /* Отступ сверху */
+  left: 15px; /* Отступ слева */
+  z-index: 10; /* Чтобы кнопка была выше картинки */
+
+  width: 35px;
+  height: 35px;
+  border-radius: 50%; /* Делаем круглой */
+  background-color: rgba(255, 255, 255, 0.8); /* Белый полупрозрачный фон */
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Стиль самого символа сердца */
+.heart-icon {
+  color: var(--color-primary);
+  font-size: 20px;
+  line-height: 0;
+  margin-top: 5px;
+  margin-left: 1px;
+
+  transition: color 0.3s ease;
+}
+
+/* Эффекты при наведении */
+.recipe-card__favorite:hover {
+  background-color: white;
+  transform: scale(1.1); /* Немного увеличиваем */
+}
+
+.recipe-card__favorite.active .heart-icon {
+  color: var(--color-accent); /* Сердце краснеет при наведении */
+}
+
+#empty-fav-msg {
+  font-family: var(--font-primary);
+  font-size: 20px;
+
+  /* 1. Растягиваем сообщение на все колонки сетки */
+  grid-column: 1 / -1;
+
+  /* 2. Центрируем текст внутри */
+  text-align: center;
+
+  /* 3. Добавляем отступы, чтобы не прилипало к верху */
+  margin: 50px auto;
+
+  /* 4. Можно добавить цвет из переменных, чтобы было красиво */
+  color: var(--color-accent);
+  opacity: 0.7;
 }
 
 @media (max-width: 1200px) {

@@ -6,7 +6,10 @@
     <title>TastyBlog</title>
     <link rel="icon" type="image/png" href="/lab6/src/images/logo.png" />
     <link rel="stylesheet" href="/lab6/src/css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body class="body">
     <header class="site-header">
@@ -19,7 +22,7 @@
 
         <nav class="header__nav main-nav">
           <ul class="nav__list">
-            <li><a href="#" class="nav__link">Главная</a></li>
+            <li><a href="#" id="open-home" class="nav__link">Главная</a></li>
             <li><a href="#menu" class="nav__link">Рецепты</a></li>
             <li><a href="#info" class="nav__link">О нас</a></li>
             <li><a href="#footer_section" class="nav__link">Контакты</a></li>
@@ -52,6 +55,27 @@
             </svg>
           </button>
         </div>
+        <button
+          target="_blank"
+          id="open-fav"
+          class="header__fav-btn"
+          aria-label="Перейти в избранное"
+        >
+          <svg
+            class="header__fav-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
         <button class="menu-toggle" aria-label="Открыть меню">
           <span></span>
           <span></span>
@@ -61,157 +85,178 @@
     </header>
 
     <main class="main-content" id="menu">
-      <section class="hero">
-        <h1 class="hero__title">Кулинарный блог о здоровом питании</h1>
-        <p class="hero__subtitle">
-          Просто о вкусной и полезной еде. Рецепты, советы и идеи для вашей кухни.
-        </p>
-      </section>
-
-      <section class="filters" style="display: none">
-        <div class="filters__list">
-          <button class="filter-btn" type="button">ВЕГАН</button>
-          <button class="filter-btn" type="button">Завтрак</button>
-          <button class="filter-btn" type="button">Обед</button>
-          <button class="filter-btn" type="button">Ужин</button>
-          <button class="filter-btn" type="button">Десерт</button>
-          <button class="filter-btn" type="button">ВСЕ РЕЦЕПТЫ</button>
+      <div id="fav-view" style="display: none">
+        <section class="hero">
+          <h1 class="hero__title">Ваше избранное</h1>
+          <p class="hero__subtitle">Здесь собраны рецепты, которые вам понравились.</p>
+        </section>
+        <div class="favorites-grid recipes-grid">
+          <!-- Сюда JS будет добавлять карточки -->
+          <p id="empty-fav-msg">У вас пока нет избранных рецептов.</p>
         </div>
-      </section>
+      </div>
+      <div id="home-view">
+        <section class="hero">
+          <h1 class="hero__title">Кулинарный блог о здоровом питании</h1>
+          <p class="hero__subtitle">
+            Просто о вкусной и полезной еде. Рецепты, советы и идеи для вашей кухни.
+          </p>
+        </section>
 
-      <section class="tabs">
-        <div class="filters__list">
-          <button class="filter-btn" data-target="tab-1">Кексы</button>
-          <button class="filter-btn" data-target="tab-2">Овсянка</button>
-          <button class="filter-btn" data-target="tab-3">Бутерброды</button>
-        </div>
-      </section>
+        <section class="filters" style="display: none">
+          <div class="filters__list">
+            <button class="filter-btn" type="button">ВЕГАН</button>
+            <button class="filter-btn" type="button">Завтрак</button>
+            <button class="filter-btn" type="button">Обед</button>
+            <button class="filter-btn" type="button">Ужин</button>
+            <button class="filter-btn" type="button">Десерт</button>
+            <button class="filter-btn" type="button">ВСЕ РЕЦЕПТЫ</button>
+          </div>
+        </section>
 
-      <div class="recipes-grid">
-        <div id="tab-1" class="tab-pane">
-          <article class="recipe-card" itemscope itemtype="https://schema.org/Recipe">
-            <figure class="recipe-card__figure">
-              <img
-                src="/lab6/src/images/kakes.png"
-                alt="Аппетитные кексы с ягодами"
-                class="recipe-card__image"
-                itemprop="image"
-              />
-            </figure>
-            <div class="recipe-card__content">
-              <h2 class="recipe-card__title" itemprop="name">Кексы</h2>
-              <p class="recipe-card__description" itemprop="description">Самые вкусные кексы</p>
+        <section class="tabs">
+          <div class="filters__list">
+            <button class="filter-btn" data-target="tab-1">Кексы</button>
+            <button class="filter-btn" data-target="tab-2">Овсянка</button>
+            <button class="filter-btn" data-target="tab-3">Бутерброды</button>
+          </div>
+        </section>
 
-              <div class="recipe-card__meta">
-                <span
-                  class="recipe-card__author"
-                  itemprop="author"
-                  itemscope
-                  itemtype="https://schema.org/Person"
-                >
-                  <span itemprop="name">MasterChef</span>
-                </span>
-                <time class="recipe-card__date" datetime="2026-02-21" itemprop="datePublished"
-                  >21 февраля 2026</time
-                >
+        <div class="recipes-grid">
+          <div id="tab-1" class="tab-pane">
+            <article class="recipe-card" itemscope itemtype="https://schema.org/Recipe">
+              <button class="recipe-card__favorite" aria-label="Добавить в избранное">
+                <span class="heart-icon">❤</span>
+              </button>
+              <figure class="recipe-card__figure">
+                <img
+                  src="/lab6/src/images/kakes.png"
+                  alt="Аппетитные кексы с ягодами"
+                  class="recipe-card__image"
+                  itemprop="image"
+                />
+              </figure>
+              <div class="recipe-card__content">
+                <h2 class="recipe-card__title" itemprop="name">Кексы</h2>
+                <p class="recipe-card__description" itemprop="description">Самые вкусные кексы</p>
+
+                <div class="recipe-card__meta">
+                  <span
+                    class="recipe-card__author"
+                    itemprop="author"
+                    itemscope
+                    itemtype="https://schema.org/Person"
+                  >
+                    <span itemprop="name">MasterChef</span>
+                  </span>
+                  <time class="recipe-card__date" datetime="2026-02-21" itemprop="datePublished"
+                    >21 февраля 2026</time
+                  >
+                </div>
               </div>
-            </div>
 
-            <div class="recipe-card__schema" style="display: none">
-              <span itemprop="recipeIngredient">мука — 200 г</span>
-              <span itemprop="recipeIngredient">сахар — 150 г</span>
-              <span itemprop="recipeIngredient">яйца — 2 шт</span>
-              <span itemprop="recipeIngredient">молоко — 100 мл</span>
-              <div itemprop="recipeInstructions">
-                Смешать сухие ингредиенты, добавить яйца и молоко, перемешать. Выпекать 25 минут при
-                180°C.
+              <div class="recipe-card__schema" style="display: none">
+                <span itemprop="recipeIngredient">мука — 200 г</span>
+                <span itemprop="recipeIngredient">сахар — 150 г</span>
+                <span itemprop="recipeIngredient">яйца — 2 шт</span>
+                <span itemprop="recipeIngredient">молоко — 100 мл</span>
+                <div itemprop="recipeInstructions">
+                  Смешать сухие ингредиенты, добавить яйца и молоко, перемешать. Выпекать 25 минут
+                  при 180°C.
+                </div>
               </div>
-            </div>
-          </article>
-        </div>
+            </article>
+          </div>
 
-        <div id="tab-2" class="tab-pane">
-          <article class="recipe-card" itemscope itemtype="https://schema.org/Recipe">
-            <figure class="recipe-card__figure">
-              <img
-                src="/lab6/src/images/avseanka.png"
-                alt="Тарелка овсяной каши с фруктами"
-                class="recipe-card__image"
-                itemprop="image"
-              />
-            </figure>
-            <div class="recipe-card__content">
-              <h2 class="recipe-card__title" itemprop="name">Овсянка</h2>
-              <p class="recipe-card__description" itemprop="description">
-                Полезный завтрак с ягодами
-              </p>
+          <div id="tab-2" class="tab-pane">
+            <article class="recipe-card" itemscope itemtype="https://schema.org/Recipe">
+              <button class="recipe-card__favorite" aria-label="Добавить в избранное">
+                <span class="heart-icon">❤</span>
+              </button>
+              <figure class="recipe-card__figure">
+                <img
+                  src="/lab6/src/images/avseanka.png"
+                  alt="Тарелка овсяной каши с фруктами"
+                  class="recipe-card__image"
+                  itemprop="image"
+                />
+              </figure>
+              <div class="recipe-card__content">
+                <h2 class="recipe-card__title" itemprop="name">Овсянка</h2>
+                <p class="recipe-card__description" itemprop="description">
+                  Полезный завтрак с ягодами
+                </p>
 
-              <div class="recipe-card__meta">
-                <span
-                  class="recipe-card__author"
-                  itemprop="author"
-                  itemscope
-                  itemtype="https://schema.org/Person"
-                >
-                  <span itemprop="name">MasterChef</span>
-                </span>
-                <time class="recipe-card__date" datetime="2026-02-21" itemprop="datePublished"
-                  >21 февраля 2026</time
-                >
+                <div class="recipe-card__meta">
+                  <span
+                    class="recipe-card__author"
+                    itemprop="author"
+                    itemscope
+                    itemtype="https://schema.org/Person"
+                  >
+                    <span itemprop="name">MasterChef</span>
+                  </span>
+                  <time class="recipe-card__date" datetime="2026-02-21" itemprop="datePublished"
+                    >21 февраля 2026</time
+                  >
+                </div>
               </div>
-            </div>
-            <div class="recipe-card__schema" style="display: none">
-              <span itemprop="recipeIngredient">овсяные хлопья — 50 г</span>
-              <span itemprop="recipeIngredient">молоко — 200 мл</span>
-              <span itemprop="recipeIngredient">банан — 1 шт</span>
-              <span itemprop="recipeIngredient">ягоды — 30 г</span>
-              <div itemprop="recipeInstructions">
-                Залить хлопья молоком, варить 5 минут. Добавить нарезанный банан и ягоды.
+              <div class="recipe-card__schema" style="display: none">
+                <span itemprop="recipeIngredient">овсяные хлопья — 50 г</span>
+                <span itemprop="recipeIngredient">молоко — 200 мл</span>
+                <span itemprop="recipeIngredient">банан — 1 шт</span>
+                <span itemprop="recipeIngredient">ягоды — 30 г</span>
+                <div itemprop="recipeInstructions">
+                  Залить хлопья молоком, варить 5 минут. Добавить нарезанный банан и ягоды.
+                </div>
               </div>
-            </div>
-          </article>
-        </div>
+            </article>
+          </div>
 
-        <div id="tab-3" class="tab-pane">
-          <article class="recipe-card" itemscope itemtype="https://schema.org/Recipe">
-            <figure class="recipe-card__figure">
-              <img
-                src="/lab6/src/images/sandwishes.png"
-                alt="Сэндвичи с зеленью и овощами"
-                class="recipe-card__image"
-                itemprop="image"
-              />
-            </figure>
-            <div class="recipe-card__content">
-              <h2 class="recipe-card__title" itemprop="name">Бутеры</h2>
-              <p class="recipe-card__description" itemprop="description">
-                Сытные бутерброды с авокадо
-              </p>
+          <div id="tab-3" class="tab-pane">
+            <article class="recipe-card" itemscope itemtype="https://schema.org/Recipe">
+              <button class="recipe-card__favorite" aria-label="Добавить в избранное">
+                <span class="heart-icon">❤</span>
+              </button>
+              <figure class="recipe-card__figure">
+                <img
+                  src="/lab6/src/images/sandwishes.png"
+                  alt="Сэндвичи с зеленью и овощами"
+                  class="recipe-card__image"
+                  itemprop="image"
+                />
+              </figure>
+              <div class="recipe-card__content">
+                <h2 class="recipe-card__title" itemprop="name">Бутеры</h2>
+                <p class="recipe-card__description" itemprop="description">
+                  Сытные бутерброды с авокадо
+                </p>
 
-              <div class="recipe-card__meta">
-                <span
-                  class="recipe-card__author"
-                  itemprop="author"
-                  itemscope
-                  itemtype="https://schema.org/Person"
-                >
-                  <span itemprop="name">MasterChef</span>
-                </span>
-                <time class="recipe-card__date" datetime="2026-02-21" itemprop="datePublished"
-                  >21 февраля 2026</time
-                >
+                <div class="recipe-card__meta">
+                  <span
+                    class="recipe-card__author"
+                    itemprop="author"
+                    itemscope
+                    itemtype="https://schema.org/Person"
+                  >
+                    <span itemprop="name">MasterChef</span>
+                  </span>
+                  <time class="recipe-card__date" datetime="2026-02-21" itemprop="datePublished"
+                    >21 февраля 2026</time
+                  >
+                </div>
               </div>
-            </div>
-            <div class="recipe-card__schema" style="display: none">
-              <span itemprop="recipeIngredient">хлеб — 2 ломтика</span>
-              <span itemprop="recipeIngredient">авокадо — 1/2 шт</span>
-              <span itemprop="recipeIngredient">помидор — 1 шт</span>
-              <span itemprop="recipeIngredient">листья салата — 2 шт</span>
-              <div itemprop="recipeInstructions">
-                Размять авокадо вилкой, намазать на хлеб, сверху выложить помидор и салат.
+              <div class="recipe-card__schema" style="display: none">
+                <span itemprop="recipeIngredient">хлеб — 2 ломтика</span>
+                <span itemprop="recipeIngredient">авокадо — 1/2 шт</span>
+                <span itemprop="recipeIngredient">помидор — 1 шт</span>
+                <span itemprop="recipeIngredient">листья салата — 2 шт</span>
+                <div itemprop="recipeInstructions">
+                  Размять авокадо вилкой, намазать на хлеб, сверху выложить помидор и салат.
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
       </div>
     </main>
@@ -277,32 +322,33 @@
     </dialog>
     <!-- <script src="/lab6/src/js/utils/helpers.js"></script>
     <script src="js/components/modal.js"></script> -->
-    <div id="sticky-timer" class="sticky-timer" style="display: none;">
-        <div class="sticky-timer__header">
-            <span class="sticky-timer__title">Таймер</span>
+    <div id="sticky-timer" class="sticky-timer" style="display: none">
+      <div class="sticky-timer__header">
+        <span class="sticky-timer__title">Таймер</span>
+      </div>
+      <div class="sticky-timer__body">
+        <div class="timer-setup">
+          <button class="setup-btn" id="minus-min">-</button>
+          <div class="input-wrapper">
+            <input type="number" id="timer-minutes" value="10" min="1" max="180" />
+            <span>мин</span>
+          </div>
+          <button class="setup-btn" id="plus-min">+</button>
         </div>
-        <div class="sticky-timer__body">
-            <div class="timer-setup">
-                <button class="setup-btn" id="minus-min">-</button>
-                <div class="input-wrapper">
-                    <input type="number" id="timer-minutes" value="10" min="1" max="180">
-                    <span>мин</span>
-                </div>
-                <button class="setup-btn" id="plus-min">+</button>
-            </div>
-            
-            <div class="sticky-timer__display" style="display: none;">10:00</div>
-            
-            <div class="sticky-timer__controls">
-                <button class="timer-btn-control start-stop" title="Старт/Пауза">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button class="timer-btn-control reset-close" title="Сбросить и закрыть">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
+
+        <div class="sticky-timer__display" style="display: none">10:00</div>
+
+        <div class="sticky-timer__controls">
+          <button class="timer-btn-control start-stop" title="Старт/Пауза">
+            <i class="fas fa-play"></i>
+          </button>
+          <button class="timer-btn-control reset-close" title="Сбросить и закрыть">
+            <i class="fas fa-times"></i>
+          </button>
         </div>
+      </div>
     </div>
     <script type="module" src="/lab6/src/js/script.js"></script>
+    <script type="module" src="/lab6/src/js/favorite.js"></script>
   </body>
 </html>
