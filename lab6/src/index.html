@@ -91,7 +91,6 @@
           <p class="hero__subtitle">Здесь собраны рецепты, которые вам понравились.</p>
         </section>
         <div class="favorites-grid recipes-grid">
-          <!-- Сюда JS будет добавлять карточки -->
           <p id="empty-fav-msg">У вас пока нет избранных рецептов.</p>
         </div>
       </div>
@@ -298,15 +297,13 @@
     <script>
       const toggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('.header__nav');
-      const navLinks = document.querySelectorAll('.nav__link'); // Находим все ссылки
+      const navLinks = document.querySelectorAll('.nav__link');
 
-      // Открытие/закрытие по кнопке бургера
       toggle.addEventListener('click', () => {
         nav.classList.toggle('is-active');
         toggle.classList.toggle('is-open');
       });
 
-      // Закрытие меню при клике на ЛЮБУЮ ссылку
       navLinks.forEach(link => {
         link.addEventListener('click', () => {
           nav.classList.remove('is-active');
@@ -317,11 +314,9 @@
     <dialog id="recipe-modal" class="modal">
       <button class="modal__close-btn">&times;</button>
       <div class="modal__content">
-        <!-- Сюда JS будет копировать данные из карточки -->
+
       </div>
     </dialog>
-    <!-- <script src="/lab6/src/js/utils/helpers.js"></script>
-    <script src="js/components/modal.js"></script> -->
     <div id="sticky-timer" class="sticky-timer" style="display: none">
       <div class="sticky-timer__header">
         <span class="sticky-timer__title">Таймер</span>

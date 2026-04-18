@@ -9,7 +9,6 @@ const header = document.querySelector('.site-header');
 const allCards = document.querySelectorAll('.recipe-card');
 const mainContainer = document.getElementById('menu');
 
-// Переменные плавающего таймера
 let stickyTimerInterval = null;
 let timeLeft = 0;
 let isTimerRunning = false;
@@ -22,7 +21,6 @@ const btnStartStop = stickyTimer.querySelector('.start-stop');
 const btnResetClose = stickyTimer.querySelector('.reset-close');
 const iconStartStop = btnStartStop.querySelector('i');
 
-// --- НОВОЕ: ПУТЬ К ВАШЕМУ БУРГЕРУ-ЛОГОТИПУ ---
 const LOGO_BURGER_SRC = '/lab6/src/images/logo.png';
 
 console.log('Найдены базовые элементы страницы:', {
@@ -54,7 +52,6 @@ tabsButtons.forEach(button => {
    3. ЛОГИКА ПЛАВАЮЩЕГО (STICKY) ТАЙМЕРА
    ========================================== */
 
-// Кнопки плюс и минус минуты
 document.getElementById('plus-min').addEventListener('click', () => {
   minutesInput.value = Math.min(parseInt(minutesInput.value) + 1, 180);
 });
@@ -63,7 +60,6 @@ document.getElementById('minus-min').addEventListener('click', () => {
   minutesInput.value = Math.max(parseInt(minutesInput.value) - 1, 1);
 });
 
-// Обновление цифр на табло
 const updateTimerDisplay = () => {
   const m = Math.floor(timeLeft / 60)
     .toString()
@@ -72,7 +68,6 @@ const updateTimerDisplay = () => {
   timerDisplay.textContent = `${m}:${s}`;
 };
 
-// Функция "Сброс и закрытие" (убивает процесс в фоне)
 const resetAndClose = () => {
   if (stickyTimerInterval) {
     clearInterval(stickyTimerInterval);
@@ -88,7 +83,6 @@ const resetAndClose = () => {
   iconStartStop.className = 'fas fa-play';
 };
 
-// Логика кнопки Старт/Пауза
 const toggleTimer = () => {
   if (isTimerRunning) {
     // Пауза
@@ -96,7 +90,6 @@ const toggleTimer = () => {
     isTimerRunning = false;
     iconStartStop.className = 'fas fa-play';
   } else {
-    // Старт (первый запуск)
     if (!stickyTimerInterval && timeLeft <= 0) {
       const mins = parseInt(minutesInput.value) || 10;
       timeLeft = mins * 60;
@@ -137,11 +130,9 @@ const modal = document.getElementById('recipe-modal');
 const modalContent = modal.querySelector('.modal__content');
 const closeBtn = modal.querySelector('.modal__close-btn');
 
-// --- ОБНОВЛЕНО: Генерация картинок бургеров в отзывах ---
 const generateBurgerRatingHTML = score => {
   let html = '<div class="comment-rating">';
   for (let i = 0; i < score; i++) {
-    // Заменяем <i> на <img> с классом
     html += `<img src="${LOGO_BURGER_SRC}" alt="Бургер" class="rating-logo-icon">`;
   }
   html += '</div>';
@@ -155,7 +146,6 @@ allCards.forEach(card => {
     const description = card.querySelector('.recipe-card__description').innerText;
     const details = card.querySelector('.recipe-card__schema').innerHTML;
 
-    // Генерируем внутренности модалки
     modalContent.innerHTML = `     
       <div class="modal__image-container">
         <img src="${img}" alt="${title}">
@@ -206,7 +196,6 @@ allCards.forEach(card => {
     modal.showModal();
     document.body.style.overflow = 'hidden';
 
-    // Находим и вешаем события на кнопки после генерации HTML
     const btnTriggerTimer = modalContent.querySelector('.timer-btn');
     const btnShowComments = modalContent.querySelector('.comment-btn');
     const commentsContainer = modalContent.querySelector('.comments-container');
@@ -214,20 +203,17 @@ allCards.forEach(card => {
     const commentsList = modalContent.querySelector('.comments-list');
     const ratingSelection = modalContent.querySelector('.rating-selection');
 
-    // Нажатие на таймер (закрывает рецепт и открывает стики)
     btnTriggerTimer.addEventListener('click', () => {
       closeModal();
       openStickyTimer();
     });
 
-    // Показ формы отзывов
     btnShowComments.addEventListener('click', () => {
       const isHidden = commentsContainer.style.display === 'none';
       commentsContainer.style.display = isHidden ? 'block' : 'none';
       if (isHidden) commentsContainer.scrollIntoView({ behavior: 'smooth' });
     });
 
-    // Отправка отзыва
     commentForm.addEventListener('submit', e => {
       e.preventDefault();
       const name = commentForm.querySelector('.comment-name').value;
@@ -274,10 +260,9 @@ const initApiFeature = () => {
   const mainContainer = document.querySelector('.main-content');
   if (!mainContainer) return;
 
-  // Шаг 4: Динамическое создание UI для взаимодействия с API
   const apiSection = document.createElement('div');
   apiSection.className = 'hero api-block';
-  
+
   apiSection.innerHTML = `
         <h2>Не знаете, что приготовить?</h2>
             <button id="btn-fetch-api" class="api_btn">
@@ -294,7 +279,6 @@ const initApiFeature = () => {
         </div>
     `;
 
-  // Вставляем блок перед сеткой рецептов
   const recipesGrid = document.querySelector('.filters');
   if (recipesGrid) {
     recipesGrid.parentNode.insertBefore(apiSection, recipesGrid);
@@ -306,7 +290,6 @@ const initApiFeature = () => {
   const statusBox = document.getElementById('api-status');
   const resultBox = document.getElementById('api-result');
 
-  // Функция обновления UI данными (Шаг 4)
   const renderRecipe = data => {
     document.getElementById('api-title').innerText = `${data.title} (${data.area})`;
     document.getElementById('api-img').src = data.image;
@@ -314,52 +297,61 @@ const initApiFeature = () => {
     resultBox.style.display = 'block';
   };
 
-  // Обработчик кнопки
   btnFetch.addEventListener('click', async () => {
-    // Установка состояния загрузки
     statusBox.innerText = '⏳ Поиск рецепта...';
     statusBox.style.color = 'inherit';
     resultBox.style.display = 'none';
     btnFetch.disabled = true;
 
     try {
+      console.log('Запуск процесса получения рецепта...');
       let recipeData = null;
 
-      // Шаг 6: Проверка работы при отключенном интернете
+      
+
       if (!navigator.onLine) {
+        console.log('Устройство офлайн. Попытка получить данные из локального хранилища...');
         statusBox.innerText = '🔴 Нет сети. Ищем рецепт в кэше...';
         recipeData = StorageService.getData();
 
         if (!recipeData) {
+          console.error('Данные в кэше отсутствуют.');
           throw new Error('Офлайн режим: в кэше нет сохраненных данных.');
         }
+
+        console.log('Данные из кэша успешно получены.');
         setTimeout(() => {
           statusBox.innerText = '🟢 Показан последний загруженный рецепт (Офлайн)';
           statusBox.style.color = '#28a745';
         }, 1000);
       } else {
-        // Онлайн запрос
+        console.log('Устройство онлайн. Выполняется запрос к API...');
         const rawData = await fetchRandomRecipe();
+
+        console.log('Данные от API получены. Начинается парсинг...');
         recipeData = parseRecipeData(rawData);
 
         if (recipeData) {
-          StorageService.saveData(recipeData); // Кэшируем успешный ответ
-          statusBox.innerText = ''; // Очищаем статус
+          console.log('Парсинг успешен. Сохраняем данные в кэш...');
+          StorageService.saveData(recipeData);
+          statusBox.innerText = '';
         } else {
+          console.error('Ошибка: parseRecipeData вернул null/undefined');
           throw new Error('API вернул пустой результат');
         }
       }
 
+      console.log('Переход к отрисовке (renderRecipe)...');
       renderRecipe(recipeData);
     } catch (error) {
-      // Шаг 6: Убедитесь в правильной обработке ошибок API
+      console.error('Перехвачена ошибка в основном блоке:', error.message);
       statusBox.innerText = `❌ Ошибка: ${error.message}`;
       statusBox.style.color = 'red';
     } finally {
+      console.log('Завершение операции. Кнопка разблокирована.');
       btnFetch.disabled = false;
     }
   });
 };
 
-// Запускаем инициализацию API фичи после загрузки DOM
 document.addEventListener('DOMContentLoaded', initApiFeature);

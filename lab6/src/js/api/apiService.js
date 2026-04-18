@@ -1,24 +1,36 @@
-// Файл: js/api/apiService.js
 import { API_CONFIG } from './config.js';
 
 export const fetchRandomRecipe = async () => {
-    try {
-        const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.RANDOM_RECIPE}`;
-        
-        // Шаг 5: Использование безопасного протокола (HTTPS по умолчанию в URL)
-        const response = await fetch(url, {
-            method: 'GET', // Шаг 5: Ограничение метода (только чтение публичных данных)
-        });
+  const url = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.RANDOM_RECIPE}`;
 
-        // Шаг 6: Проверка корректности ответа
-        if (!response.ok) {
-            throw new Error(`Ошибка HTTP: ${response.status}`);
-        }
+  console.log(`[API] Начало запроса: ${url}`);
 
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error("Ошибка сервиса API:", error);
-        throw error; // Пробрасываем для обработки в UI
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+    });
+
+    console.log(`[API] Ответ получен. Статус: ${response.status} ${response.statusText}`);
+
+    if (!response.ok) {
+      console.warn(`[API] Сервер вернул ошибку: ${response.status}`);
+      throw new Error(`Ошибка HTTP: ${response.status}`);
     }
+
+    const data = await response.json();
+
+    console.log('[API] Данные успешно распарсены:', data);
+
+    return data;
+  } catch (error) {
+    console.error('Ошибка в fetchRandomRecipe');
+    console.error(`Сообщение: ${error.message}`);
+    if (error.stack) {
+      console.error(`Стек вызовов: ${error.stack}`);
+    }
+
+    throw error;
+  }
 };
+
+
