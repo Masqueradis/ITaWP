@@ -15,9 +15,9 @@
 .header__container {
   display: flex;
   flex-direction: row;
-  margin: 0 15vw;
+  margin: 0 10vw;
   align-items: center;
-  height: 10vh;
+  height: 90px;
   justify-content: space-between;
 }
 
@@ -144,6 +144,33 @@
   transition: 0.3s;
 }
 
+.header__fav-btn {
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+  flex-shrink: 0; /* Чтобы сердечко не сжималось */
+}
+
+.header__fav-icon {
+  width: 30px; /* Чуть увеличил для баланса с кнопкой поиска */
+  height: 30px;
+  display: block;
+  margin-left: 30px;
+}
+
+.header__fav-btn:hover {
+  transform: scale(1.1);
+  color: #ff4d4d;
+}
+
 @media (max-width: 1600px) {
   .site-header .logo-part {
     display: none;
@@ -159,10 +186,14 @@
   .site-header .logo-part {
     display: none;
   }
-
+  .header__logo img {
+    width: 29px;
+    height: auto;
+    margin-right: 5px;
+  }
   .site-header .logo-short {
     display: inline;
-    font-size: 32px;
+    font-size: 25px !important;
   }
 
   .header__container {
@@ -197,9 +228,9 @@
   }
 
   .search-form {
-    max-width: 240px;
+    max-width: 210px;
     width: 100%;
-    padding: 5px 5px 5px 15px;
+    padding: 0px 0px 0px 10px;
     background-color: var(--color-background);
     display: flex;
     border-radius: 50px;
@@ -211,7 +242,8 @@
     background: transparent;
     border: none;
     outline: none;
-    font-size: 12px;
+    font-size: 11px;
+    padding-right: 0;
   }
 
   .search-form__button {

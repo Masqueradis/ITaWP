@@ -1,0 +1,116 @@
+/* src/css/sticky_timer.css */
+
+.sticky-timer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 220px;
+    background-color: var(--color-background); /* Испольуем вашу переменную фона */
+    border: 2px solid var(--color-accent);    /* Ваша акцентная переменная */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 2000; /* Выше модального окна */
+    overflow: hidden;
+    font-family: var(--font-primary);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    animation: slideInRight 0.5s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.sticky-timer__header {
+    background-color: var(--color-primary); /* Ваша основная переменная */
+    color: var(--color-accent);
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.sticky-timer__title {
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sticky-timer__close {
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    font-size: 22px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.sticky-timer__close:hover {
+    opacity: 1;
+}
+
+.sticky-timer__body {
+    padding: 15px;
+    text-align: center;
+}
+
+.sticky-timer__display {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--color-accent);
+    font-family: monospace; /* Моноширинный шрифт для цифр */
+    margin-bottom: 10px;
+    letter-spacing: -2px;
+}
+
+.sticky-timer__controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.timer-btn-control {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, background-color 0.2s;
+}
+
+.timer-btn-control:hover {
+    background-color: #5d0027; /* Чуть темнее акцентного */
+}
+
+.timer-btn-control:active {
+    transform: scale(0.95);
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 480px) {
+    .sticky-timer {
+        width: 180px;
+        bottom: 10px;
+        right: 10px;
+    }
+    .sticky-timer__display {
+        font-size: 32px;
+    }
+}

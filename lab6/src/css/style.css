@@ -2,8 +2,11 @@
 @import url('header.css');
 @import url('main.css');
 @import url('footer.css');
+@import url('modal_card.css');
+@import url('stinky_timer.css');
 
 * {
   margin: 0px;
   padding: 0;
 }
+
