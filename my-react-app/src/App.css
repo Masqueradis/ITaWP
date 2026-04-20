@@ -1,0 +1,191 @@
+@import url("./styles/variables.css");
+@import url("./styles/Header.css");
+@import url("./styles/AddTaskForm.css");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white; /* Можно заменить на var(--color-background), если нужно */
+  font-family: var(--font-primary), sans-serif;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden; /* Чтобы не было горизонтальной прокрутки */
+}
+
+.container,
+.header__container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.task-list__grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding-bottom: 40px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card__image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card__content {
+  padding: 20px;
+}
+
+.card__title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: black; /* Используем твой акцентный цвет */
+}
+
+.card__description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+/* --- КНОПКИ --- */
+
+button {
+  background-color: var(--color-accent); /* Используем твой второй цвет */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: inherit;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.filters-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 2px solid var(--color-primary);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.filter-label {
+  font-weight: bold;
+  min-width: 100px;
+  color: var(--color-accent);
+}
+
+.filter-buttons-list {
+  display: flex;
+  gap: 10px;
+}
+
+/* Стили кнопок */
+.btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-family: var(--font-primary);
+  cursor: pointer;
+  transition: 0.2s;
+  border: 2px solid transparent;
+}
+
+.btn--outline {
+  background: #f5f5f5;
+  color: #666;
+}
+
+/* Когда кнопка активна — красим в твой розовый/акцентный цвет */
+.btn--active {
+  background-color: var(--color-primary-2) !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+
+/* --- ОБНОВЛЕНИЕ ДЛЯ TASK-INFO --- */
+.task-priority {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Расстояние между словом "Приоритет:" и бейджем */
+}
+
+/* --- BADGES (БЕЙДЖИ ПРИОРИТЕТА) --- */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.badge--high {
+  background-color: #ff4d4f; /* Ярко-красный */
+}
+
+.badge--medium {
+  background-color: #faad14; /* Оранжево-желтый */
+}
+
+.badge--low {
+  background-color: #52c41a; /* Сочный зеленый */
+}
+
+.badge--default {
+  background-color: #d9d9d9; /* Серый для всего остального */
+  color: #333;
+}
+

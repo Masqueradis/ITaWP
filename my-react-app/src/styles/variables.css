@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Montserrat Alternates";
+  /* ../ означает выйти из папки styles в папку src */
+  src: url("../assets/MontserratAlternates-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --color-background: #bdccff;
+  --color-primary: #05255554;
+  --color-primary-2: #052555;
+  --color-accent: #7ab1ff;
+  --color-secondary: #ffffff;
+  --font-primary: "Montserrat Alternates";
+}
+
+/* ВОТ ЭТОГО У ТЕБЯ НЕ ХВАТАЛО: Применяем шрифт ко всему сайту */
+* {
+  font-family: var(--font-primary) !important;
+}
