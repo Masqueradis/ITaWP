@@ -1,12 +1,13 @@
 import React from "react";
 import Button from "../ui/Button";
+import { generateTaskId } from "../../utils/generateTaskId";
 
 const AddTaskForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const newTask = {
-      id: Date.now(),
+      id: generateTaskId(),
       title: formData.get("title"),
       priority: formData.get("priority"),
       description: formData.get("description"),

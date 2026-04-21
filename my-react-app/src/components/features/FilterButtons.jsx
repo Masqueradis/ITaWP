@@ -11,7 +11,7 @@ const FilterButtons = ({
   const statusOptions = ["Все", "Нужно сделать", "В процессе", "Готово"];
 
   return (
-    <section className="filters-section container">
+    <>
       <FilterGroup
         label="Приоритет"
         options={priorityOptions}
@@ -24,7 +24,7 @@ const FilterButtons = ({
         activeValue={currentStatus}
         onSelect={onStatusChange}
       />
-    </section>
+    </>
   );
 };
 

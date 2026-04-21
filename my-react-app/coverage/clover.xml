@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1776812394942" clover="3.2.0">
+  <project timestamp="1776812394942" name="All files">
+    <metrics statements="45" coveredstatements="13" conditionals="24" coveredconditionals="9" methods="14" coveredmethods="5" elements="83" coveredelements="27" complexity="0" loc="45" ncloc="45" packages="3" files="9" classes="9"/>
+    <package name="features">
+      <metrics statements="23" coveredstatements="3" conditionals="8" coveredconditionals="0" methods="7" coveredmethods="2"/>
+      <file name="AddTaskForm.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\features\AddTaskForm.jsx">
+        <metrics statements="11" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+      <file name="FilterButtons.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\features\FilterButtons.jsx">
+        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+      </file>
+      <file name="TaskItem.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\features\TaskItem.jsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
+      <file name="TaskList.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\features\TaskList.jsx">
+        <metrics statements="5" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="layout">
+      <metrics statements="2" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Header.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\layout\Header.jsx">
+        <metrics statements="2" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ui">
+      <metrics statements="20" coveredstatements="10" conditionals="15" coveredconditionals="9" methods="6" coveredmethods="3"/>
+      <file name="Button.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\ui\Button.jsx">
+        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="10" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="3" type="stmt"/>
+      </file>
+      <file name="Card.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\ui\Card.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="7" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+      </file>
+      <file name="FilterGroup.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\ui\FilterGroup.jsx">
+        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+      </file>
+      <file name="PriorityBadge.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\ui\PriorityBadge.jsx">
+        <metrics statements="11" coveredstatements="5" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="8" count="3" type="cond" truecount="1" falsecount="3"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

@@ -1,10 +1,10 @@
-// Файл: components/features/TaskItem.jsx (или где он у вас лежит)
 import React from "react";
-import Card from "../ui/Card"; 
+import Card from "../ui/Card";
 import Button from "../ui/Button";
 import PriorityBadge from "../ui/PriorityBadge"; // <-- Импортируем бейдж
 
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task }) => { 
+
   return (
     <Card title={task.title} description={task.description}>
       <div className="task-info">
@@ -13,10 +13,10 @@ const TaskItem = ({ task }) => {
           <span>Приоритет:</span>
           <PriorityBadge priority={task.priority} />
         </div>
-        
+
         <div className="task-status">Статус: {task.status}</div>
       </div>
-      
+
       <Button
         variant="primary"
         onClick={() => console.log(`Задача ${task.id} завершена!`)}
