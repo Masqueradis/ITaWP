@@ -35,7 +35,7 @@ const AddTaskForm = () => {
               type="text"
               className="form-input"
               placeholder="Что нужно сделать?"
-              required
+
             />
             <select name="priority" className="form-select">
               <option value="Высокий">Высокий</option>

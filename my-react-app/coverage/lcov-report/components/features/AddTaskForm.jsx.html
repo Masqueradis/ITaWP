@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -125,30 +125,32 @@
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,28 +191,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
 import Button from "../ui/Button";
+import { generateTaskId } from "../../utils/generateTaskId";
 &nbsp;
-const AddTaskForm = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-  const handleSubmit = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
-    const formData = <span class="cstat-no" title="statement not covered" >new FormData(e.target);</span>
-    const newTask = <span class="cstat-no" title="statement not covered" >{</span>
-      id: Date.now(),
+const AddTaskForm = () =&gt; {
+  const handleSubmit = (e) =&gt; {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const newTask = {
+      id: generateTaskId(),
       title: formData.get("title"),
       priority: formData.get("priority"),
       description: formData.get("description"),
       status: "Нужно сделать",
     };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (!newTask.title) <span class="cstat-no" title="statement not covered" >return alert("Введите название!");</span></span>
-    const savedTasks = <span class="cstat-no" title="statement not covered" >JSON.parse(localStorage.getItem("added_tasks") || "[]");</span>
-<span class="cstat-no" title="statement not covered" >    savedTasks.unshift(newTask);</span>
-<span class="cstat-no" title="statement not covered" >    localStorage.setItem("added_tasks", JSON.stringify(savedTasks));</span>
+    if (!newTask.title) return alert("Введите название!");
+    const savedTasks = JSON.parse(localStorage.getItem("added_tasks") || "[]");
+    savedTasks.unshift(newTask);
+    localStorage.setItem("added_tasks", JSON.stringify(savedTasks));
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    window.location.reload();</span>
+    window.location.reload();
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;section className="add-task-section container"&gt;
       &lt;div className="add-task-card"&gt;
         &lt;h2 className="form-title"&gt;Новое задание&lt;/h2&gt;
@@ -223,7 +226,7 @@ const AddTaskForm = <span class="cstat-no" title="statement not covered" ><span 
               type="text"
               className="form-input"
               placeholder="Что нужно сделать?"
-              required
+&nbsp;
             /&gt;
             &lt;select name="priority" className="form-select"&gt;
               &lt;option value="Высокий"&gt;Высокий&lt;/option&gt;
@@ -256,7 +259,7 @@ export default AddTaskForm;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-21T22:34:21.068Z
+                at 2026-04-22T02:44:05.335Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

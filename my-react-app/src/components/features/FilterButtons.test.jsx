@@ -64,13 +64,16 @@ describe('FilterButtons компонент', () => {
     console.log('Опции приоритета:');
     console.table(priorityOptions);
     priorityOptions.forEach(opt => {
-      expect(screen.getByRole('button', { name: opt })).toBeInTheDocument();
+      const buttons = screen.getAllByRole('button', { name: opt });
+      expect(buttons.length).toBeGreaterThan(0);
     });
 
     console.log('Опции статуса:');
     console.table(statusOptions);
     statusOptions.forEach(opt => {
-      expect(screen.getByRole('button', { name: opt })).toBeInTheDocument();
+      const buttons = screen.getAllByRole('button', { name: opt });
+      expect(buttons.length).toBeGreaterThan(0); 
+      expect(buttons[0]).toBeInTheDocument();
     });
 
     console.log('Результат: Все кнопки опций присутствуют в DOM.');

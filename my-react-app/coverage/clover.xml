@@ -1,86 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1776812394942" clover="3.2.0">
-  <project timestamp="1776812394942" name="All files">
-    <metrics statements="45" coveredstatements="13" conditionals="24" coveredconditionals="9" methods="14" coveredmethods="5" elements="83" coveredelements="27" complexity="0" loc="45" ncloc="45" packages="3" files="9" classes="9"/>
-    <package name="features">
-      <metrics statements="23" coveredstatements="3" conditionals="8" coveredconditionals="0" methods="7" coveredmethods="2"/>
-      <file name="AddTaskForm.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\features\AddTaskForm.jsx">
-        <metrics statements="11" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
+<coverage generated="1776825845350" clover="3.2.0">
+  <project timestamp="1776825845350" name="All files">
+    <metrics statements="66" coveredstatements="57" conditionals="41" coveredconditionals="32" methods="21" coveredmethods="16" elements="128" coveredelements="105" complexity="0" loc="66" ncloc="66" packages="4" files="12" classes="12"/>
+    <package name="components.features">
+      <metrics statements="25" coveredstatements="23" conditionals="8" coveredconditionals="8" methods="8" coveredmethods="7"/>
+      <file name="AddTaskForm.jsx" path="/home/masqueradis/ITaWP/my-react-app/src/components/features/AddTaskForm.jsx">
+        <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="17" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+      </file>
+      <file name="FilterButtons.jsx" path="/home/masqueradis/ITaWP/my-react-app/src/components/features/FilterButtons.jsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+      </file>
+      <file name="SortTask.jsx" path="/home/masqueradis/ITaWP/my-react-app/src/components/features/SortTask.jsx">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="5" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
       </file>
-      <file name="FilterButtons.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\features\FilterButtons.jsx">
-        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-      </file>
-      <file name="TaskItem.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\features\TaskItem.jsx">
+      <file name="TaskItem.jsx" path="/home/masqueradis/ITaWP/my-react-app/src/components/features/TaskItem.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="6" count="1" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
       </file>
-      <file name="TaskList.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\features\TaskList.jsx">
-        <metrics statements="5" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
+      <file name="TaskList.jsx" path="/home/masqueradis/ITaWP/my-react-app/src/components/features/TaskList.jsx">
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="layout">
+    <package name="components.layout">
       <metrics statements="2" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Header.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\layout\Header.jsx">
+      <file name="Header.jsx" path="/home/masqueradis/ITaWP/my-react-app/src/components/layout/Header.jsx">
         <metrics statements="2" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="5" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="ui">
-      <metrics statements="20" coveredstatements="10" conditionals="15" coveredconditionals="9" methods="6" coveredmethods="3"/>
-      <file name="Button.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\ui\Button.jsx">
+    <package name="components.ui">
+      <metrics statements="20" coveredstatements="16" conditionals="15" coveredconditionals="12" methods="6" coveredmethods="3"/>
+      <file name="Button.jsx" path="/home/masqueradis/ITaWP/my-react-app/src/components/ui/Button.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="10" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="12" count="3" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="10" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="5" type="stmt"/>
       </file>
-      <file name="Card.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\ui\Card.jsx">
+      <file name="Card.jsx" path="/home/masqueradis/ITaWP/my-react-app/src/components/ui/Card.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="7" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
       </file>
-      <file name="FilterGroup.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\ui\FilterGroup.jsx">
+      <file name="FilterGroup.jsx" path="/home/masqueradis/ITaWP/my-react-app/src/components/ui/FilterGroup.jsx">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
       </file>
-      <file name="PriorityBadge.jsx" path="D:\ИТиВП\Projects_ITaWP\my-react-app\src\components\ui\PriorityBadge.jsx">
-        <metrics statements="11" coveredstatements="5" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="8" count="3" type="cond" truecount="1" falsecount="3"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
+      <file name="PriorityBadge.jsx" path="/home/masqueradis/ITaWP/my-react-app/src/components/ui/PriorityBadge.jsx">
+        <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="7" type="stmt"/>
+        <line num="8" count="7" type="cond" truecount="4" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="19" coveredstatements="18" conditionals="17" coveredconditionals="12" methods="6" coveredmethods="6"/>
+      <file name="generateTaskId.js" path="/home/masqueradis/ITaWP/my-react-app/src/utils/generateTaskId.js">
+        <metrics statements="3" coveredstatements="2" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="5" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+      </file>
+      <file name="sortTasks.js" path="/home/masqueradis/ITaWP/my-react-app/src/utils/sortTasks.js">
+        <metrics statements="16" coveredstatements="16" conditionals="13" coveredconditionals="9" methods="5" coveredmethods="5"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="5" type="cond" truecount="5" falsecount="0"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="4" type="cond" truecount="2" falsecount="2"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="32" count="4" type="cond" truecount="2" falsecount="2"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="38" count="5" type="stmt"/>
       </file>
     </package>
   </project>
